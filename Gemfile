@@ -36,6 +36,9 @@ gem 'dotenv'
 # use Google Books API
 gem 'googlebooks'
 
+# Build seed data
+# gem 'faker'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
