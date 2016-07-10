@@ -31,7 +31,7 @@ gem 'devise'
 gem 'omniauth'
 # gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-gem 'dotenv'
+gem 'dotenv-rails'
 
 # use Google Books API
 gem 'googlebooks'
