@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707210645) do
+ActiveRecord::Schema.define(version: 20160711191300) do
+
+  create_table "books", force: :cascade do |t|
+    t.string  "title"
+    t.string  "author"
+    t.string  "publisher"
+    t.string  "publish_date"
+    t.string  "category"
+    t.integer "average_rating"
+    t.integer "ratings_count"
+    t.string  "description"
+    t.float   "price"
+    t.string  "isbn"
+    t.string  "buy_link"
+  end
+
+  create_table "collection_books", force: :cascade do |t|
+    t.integer "collection_id"
+    t.integer "book_id"
+  end
+
+  add_index "collection_books", ["book_id"], name: "index_collection_books_on_book_id"
+  add_index "collection_books", ["collection_id"], name: "index_collection_books_on_collection_id"
+
+  create_table "collections", force: :cascade do |t|
+    t.string  "name"
+    t.integer "user_id"
+  end
+
+  add_index "collections", ["user_id"], name: "index_collections_on_user_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.string  "content"
+    t.integer "user_id"
+    t.integer "collection_id"
+  end
+
+  add_index "comments", ["collection_id"], name: "index_comments_on_collection_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

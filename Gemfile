@@ -29,9 +29,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # authentication
 gem 'devise'
 gem 'omniauth'
-# gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'faraday'
 
 # use Google Books API
 gem 'googlebooks'
