@@ -35,6 +35,7 @@ gem 'faraday'
 
 # use Google Books API
 gem 'googlebooks'
+gem 'google-api-client'
 
 # Build seed data
 # gem 'faker'
