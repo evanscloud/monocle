@@ -4,9 +4,9 @@ class CreateBooks < ActiveRecord::Migration
       t.string :title
       t.string :author
       t.string :publisher
-      t.string :publish_date
-      t.string :category
-      t.integer :average_rating
+      t.string :published_date
+      t.string :categories
+      t.float :average_rating
       t.integer :ratings_count
       t.string :description
       t.float :price
