@@ -39,6 +39,10 @@ gem 'faraday'
 gem 'googlebooks'
 gem 'google-api-client'
 
+# styling
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+
 # Build seed data
 # gem 'faker'
 
