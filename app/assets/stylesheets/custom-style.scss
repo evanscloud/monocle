@@ -1,0 +1,48 @@
+/* Global */
+
+* {
+  font-family: 'Latos', Helvetica, Arial, sans-serif;
+}
+
+/* Links */
+a,
+a:focus,
+a:hover {
+  color: #FFFFFF;
+}
+
+/* base */
+
+html,
+body {
+  height: 100%;
+  background: url("books.jpg") no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+}
+body {
+  color: #FFFFFF;
+  font-size: 2em;
+}
+
+/* navbar */
+
+
+
+/* footer */
+
+.custfoot {
+  text-align: center;
+  font-size: 1em;
+  // color: #ffffff;
+  position: relative;
+  bottom: 0;
+}
+
+/* button */
+
+.btn {
+  margin: 10px;
+}
