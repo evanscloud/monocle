@@ -5,13 +5,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <!-- Custom Font -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900" rel="stylesheet">
+
 </head>
 <body>
 
-  <%= yield %>
+  <%= render 'layouts/navigation' %>
 
-  <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
-  <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
-  <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
+  <%= render 'layouts/flash' %>
+
+  <div class="container-fluid">
+    <%= yield %>
+  </div>
+
+  <div class="custfoot">
+    <p>Created with <a href="http://rubyonrails.org/" target="_blank">Rails</a>, by <a href="http://www.evanng.com" target="_blank">Evan Ng</a> / <a href="https://github.com/evanscloud/monocle" target="_blank">GitHub Repo <i class="fa fa-github"></i></a></p>
+  </div>
+
 </body>
 </html>
