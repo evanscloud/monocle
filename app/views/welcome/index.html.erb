@@ -1,7 +1,7 @@
 <div class="welcome">
   <h1>Welcome to Monocle</h1>
 
-  <p>Ready to fill your own bookshelf?</p>
-  
-  <a href="/login" class="btn btn-lg btn-default">Log In</a> or <a href="/signup" class="btn btn-lg btn-default">Sign Up</a>
+  <h3>Ready to fill your own bookshelf?</h3>
+
+  <h3><%= link_to 'Log in', new_user_session_path, class: "btn btn-lg btn-default" %> or <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-default" %></h3>
 </div>

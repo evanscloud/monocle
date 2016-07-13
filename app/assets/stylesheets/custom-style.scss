@@ -1,7 +1,10 @@
 /* Global */
 
-$font-stack: 'Latos', Helvetica, Arial, sans-serif;
 $primary-color: #FFFFFF;
+
+* {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
 
 /* Links */
 a,
@@ -31,6 +34,7 @@ body {
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
+  font-size: 17px;
 }
 
 .navbar-default .navbar-brand {
@@ -47,7 +51,7 @@ body {
 
 footer {
   text-align: center;
-  font-size: .8em;
+  font-size: 1em;
   position: relative;
   bottom: 0;
 }
