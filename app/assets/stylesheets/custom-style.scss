@@ -1,14 +1,13 @@
 /* Global */
 
-* {
-  font-family: 'Latos', Helvetica, Arial, sans-serif;
-}
+$font-stack: 'Latos', Helvetica, Arial, sans-serif;
+$primary-color: #FFFFFF;
 
 /* Links */
 a,
 a:focus,
 a:hover {
-  color: #FFFFFF;
+  color: $primary-color;
 }
 
 /* base */
@@ -22,27 +21,43 @@ body {
                 -o-background-size: cover;
                 background-size: cover;
 }
+
 body {
-  color: #FFFFFF;
-  font-size: 2em;
+  color: $primary-color;
 }
 
 /* navbar */
 
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
 
+.navbar-default .navbar-brand {
+  color: $primary-color;
+  font-size: 32px;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: $primary-color;
+}
 
 /* footer */
 
-.custfoot {
+footer {
   text-align: center;
-  font-size: 1em;
-  // color: #ffffff;
+  font-size: .8em;
   position: relative;
   bottom: 0;
 }
 
 /* button */
 
-.btn {
-  margin: 10px;
+
+/* div class fields */
+
+.field {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
