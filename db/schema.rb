@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711191300) do
+ActiveRecord::Schema.define(version: 20160713145112) do
 
   create_table "book_collections", force: :cascade do |t|
     t.integer "book_id"
@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 20160711191300) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
     t.string   "username"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.integer  "role",                   default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
