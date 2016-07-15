@@ -1,12 +1,11 @@
-.custform {
-  width: 350px;
+.custcontainer {
+  width: 500px;
   margin: 30px auto;
   padding: 20px 26px!important;
-  border: 1px solid #FFFFFF;
 }
 
 .custform h1 {
-  font-size: 34px;
+  font-size: 40px;
 }
 
 .external-links {
@@ -21,8 +20,16 @@ h1 {
   letter-spacing: 1.5px;
 }
 
-h4 {
+h3 {
   text-align: center;
+}
+
+h5 {
+  text-align: center;
+}
+
+.custlist {
+  font-size: 20px;
 }
 
 .shared-links-error {
