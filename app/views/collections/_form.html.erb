@@ -1,0 +1,17 @@
+<div class="form-input">
+
+  <%= form_for @collection, url: {controller: "collections", action: "create"} do |f| %>
+  <!-- error messages -->
+
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Create", class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- :url => user_collection_path(@collection.user_id, @collection.id) -->
