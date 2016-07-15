@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160713145112) do
     t.float   "price"
     t.string  "isbn"
     t.string  "buy_link"
+    t.string  "image_link"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -41,15 +42,6 @@ ActiveRecord::Schema.define(version: 20160713145112) do
   end
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id"
-
-  create_table "comments", force: :cascade do |t|
-    t.string  "content"
-    t.integer "user_id"
-    t.integer "collection_id"
-  end
-
-  add_index "comments", ["collection_id"], name: "index_comments_on_collection_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

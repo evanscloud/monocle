@@ -12,6 +12,7 @@ class CreateBooks < ActiveRecord::Migration
       t.float :price
       t.string :isbn
       t.string :buy_link
+      t.string :image_link
     end
   end
 end
