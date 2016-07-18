@@ -44,7 +44,7 @@ class CollectionsController < ApplicationController
 
   def destroy
     @collection.destroy
-    redirect_to user_collections_path
+    redirect_to user_collections_path, alert: "Deleted successfully! Huzzah!"
   end
 
   private

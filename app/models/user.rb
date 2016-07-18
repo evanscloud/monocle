@@ -10,8 +10,10 @@ class User < ActiveRecord::Base
   after_initialize :set_default_role
 
   has_many :collections
-  has_many :comments
-  validates_uniqueness_of :username, :email
+  has_many :books, :through => :collections
+  
+  validates :username, :email, :uniqueness => true
+  validates :username, :email, :presence => true
 
   def self.from_omniauth(auth)
    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
