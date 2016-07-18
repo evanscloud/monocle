@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :collections, only: [:index]
+
   root to: 'welcome#index'
 
 end

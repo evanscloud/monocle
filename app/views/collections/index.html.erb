@@ -1,19 +1,29 @@
 <div class="custcontainer">
-  <h1>Hi, <%= current_user.username %>!</h1>
+  <% if params[:user_id] %>
+    <h1>Hi, <%= current_user.username %>!</h1>
 
-  <u><h3>Your Bookshelf</h3></u><br>
+    <u><h3>Your Bookshelf</h3></u><br>
+  <% else %>
+    <h1>Take a Look at What's Out There!</h1>
+  <% end %><br>
 
   <div class="custlist">
     <% if @collections.empty? %>
       <h5>Where did everyone go? Click on the button below!</h5>
     <% else %>
       <% @collections.each do |collection| %>
-        <li><%= link_to collection.name, user_collection_path(collection.user_id, collection.id) %></li>
+        <li><%= link_to collection.name, user_collection_path(collection.user_id, collection.id) %>
+          <% if params[:user_id].nil? %>
+            by <%= link_to collection.user.username, user_collections_path(collection.user) %>
+          <% end %>
+        </li>
       <% end %>
     <% end %>
   </div><br>
 </div>
 
-<div class="custcontainer">
-  <h3><%= button_to "New Collection", new_user_collection_path, method: 'get', class: "btn btn-default" %></h3><br>
-</div>
+<% if params[:user_id] %>
+  <div class="custcontainer">
+    <h3><%= button_to "New Collection", new_user_collection_path, method: 'get', class: "btn btn-default" %></h3><br>
+  </div>
+<% end %>
