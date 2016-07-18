@@ -4,7 +4,18 @@
 
     <h3>Ready to fill your own bookshelf?</h3>
 
-    <h3><%= link_to 'Create a Collection', new_user_collection_path(current_user), class: "btn btn-lg btn-default" %></h3>
+    <h3><%= link_to 'Create a Collection', new_user_collection_path(current_user), class: "btn btn-lg btn-default" %></h3><br>
+
+    <% if !current_user.collections.empty? %>
+      <u><h3>Your Bookshelf</h3></u><br>
+
+      <div class="custlist">
+        <% current_user.collections.each do |collection| %>
+          <li><%= link_to collection.name, user_collection_path(collection.user_id, collection.id) %></li>
+        <% end %>
+      </div>
+    <% end %>
+
   <% else %>
     <h1>Welcome to Monocle</h1>
 
