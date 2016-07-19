@@ -9,7 +9,22 @@ class BooksController < ApplicationController
     end
   end
 
-
+  def create
+    # binding.pry
+    @book = Book.new
+    book = GoogleBooks.search(params[:book][:title]).first
+    if !book.nil?
+      @book.info(book)
+      @book = @collection.books.build(@book)
+      if @book.save
+        redirect_to user_collection_path(@collection.user_id, @collection.id), alert: "The book has been added to your collection. Awesome sauce!"
+      else
+        render :new, alert: "Sorry, we couldn't find that. Please try a different search."
+      end
+    else
+      redirect_to new_user_collection_book_path, alert: "Sorry, we couldn't find that. Please try a different search."
+    end
+  end
 
   private
 
