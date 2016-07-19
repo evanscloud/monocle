@@ -1,0 +1,27 @@
+<div class="custcontainer">
+  <u><h1>Title: <%= @book.title %></h1></u>
+  <h3>Author: <%= @book.author %></h3>
+
+  <div class="custlist">
+    <img src= "<%= @book.image_link %>"><br>
+
+    <li>Publisher: <%= @book.publisher %></li>
+    <li>Published Date: <%= @book.publisher_date %></li><br>
+
+    <li>Category: <%= @book.categories %></li>
+    <li>Description: <%= @book.description %></li><br>
+
+    <li>Current Price (Based on Google): <%= @book.price %></li>
+    <li>ISBN: <%= @book.isbn %></li>
+    <li>Purchase Now: <%= @book.buy_link %></li><br>
+
+    <li>Average Rating: <%= @book.average_rating %></li>
+    <li>Ratings Count: <%= @book.ratings_count %></li>
+  </div><br>
+</div>
+
+<div class="custcontainer">
+  <p>
+    <%= button_to "Delete Book From #{@book.collection}", {:controller => :collections, :action => "destroy", :id => @collection.id}, :method => :delete, class: "btn btn-default" %>
+  </p>
+</div>

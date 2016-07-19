@@ -1,0 +1,14 @@
+<div class="form-input">
+
+  <%= form_for @book, :url => user_collection_books_path do |f| %>
+  <%= render "book_errors" %>
+
+    <div class="field">
+      <%= f.text_field :title, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Search", class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>
