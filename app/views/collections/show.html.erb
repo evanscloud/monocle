@@ -1,7 +1,7 @@
 <div class="custcontainer">
   <u><h1><%= @collection.name %></h1></u>
 
-  <h3><%= button_to "Add a New Book", new_user_collection_book_path(@collection.user_id, @collection.id), method: 'get', class: "btn btn-default" %></h3><br>
+  <h3><%= button_to "Search a Book", new_user_collection_book_path(@collection.user_id, @collection.id), method: 'get', class: "btn btn-default" %></h3><br>
 
   <div class="custlist">
     <% if @collection.books.empty? %>
@@ -11,7 +11,7 @@
         <%= link_to book.title book.author, user_collection_book_path(@collection, book) %>
       <% end %>
     <% end %>
-  </div><br>
+  </div>
 </div>
 
 <div class="custcontainer">

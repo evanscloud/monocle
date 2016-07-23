@@ -1,22 +1,8 @@
 <div class="custform">
   <h1>Create a Collection</h1>
 
-  <div class="form-input">
-    
-    <%= form_for @collection, :url => {controller: "collections", action: "create"} do |f| %>
-    <!-- error messages -->
+  <%= render "form" %>
 
-      <div class="field">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, class: "form-control", autofocus: true %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Create", class: "btn btn-default" %>
-      </div>
-
-    <% end %>
-  </div>
 </div>
 
 <div class="custcontainer">

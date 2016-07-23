@@ -4,12 +4,12 @@
 
     <u><h3>Your Bookshelf</h3></u><br>
   <% else %>
-    <h1>Take a Look at What's Out There!</h1>
+    <h1>Take a look at what's out there!</h1>
   <% end %><br>
 
   <div class="custlist">
     <% if @collections.empty? %>
-      <h5>Where did everyone go? Click on the button below!</h5>
+      <h5>Where did everyone go...?</h5>
     <% else %>
       <% @collections.each do |collection| %>
         <li><%= link_to collection.name, user_collection_path(collection.user_id, collection.id) %>

@@ -3,7 +3,7 @@
 
   <div class="form-input">
     <%= form_for @collection, :url => user_collection_path(@collection.user_id, @collection.id) do |f| %>
-    <!-- error messages -->
+    <%= render "collection_errors" %>
 
       <div class="field">
         <%= f.label :name %><br />
