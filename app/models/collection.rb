@@ -1,13 +1,10 @@
 class Collection < ActiveRecord::Base
   belongs_to :user
-  has_many :book_collections
+  has_many :book_collections, dependent: :destroy
   has_many :books, :through => :book_collections
   validates :name, :presence => true
 
-  # def comments_attributes=(comment_attributes)
-  #   comment_attributes.values.each do |com_attr|
-  #     comment = Comment.find_or_create_by(content: com_attr[:content])
-  #     self.comments.build(content: comment[:content])
-  #   end
-  # end
+  def books_attributes=(books_attributes)
+    self.create_book(books_attributes) if book_id.nil?
+  end
 end
