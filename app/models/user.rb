@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
 
   after_initialize :set_default_role
 
-  has_many :collections, dependent: :destroy
-  has_many :books, :through => :collections
-  
+  has_many :collections, -> { includes :books }, dependent: :destroy
+
   validates :username, :email, :uniqueness => true
   validates :username, :email, :presence => true
 

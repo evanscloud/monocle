@@ -6,9 +6,9 @@ class Book < ActiveRecord::Base
 
   include GoogleBooks
 
-  def self.search(title)
-    GoogleBooks.search("#{title}").first
-  end
+  # def self.search(title)
+  #   GoogleBooks.search("#{title}").first
+  # end
 
   def info(book)
     self.title = book.title
