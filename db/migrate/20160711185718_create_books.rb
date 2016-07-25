@@ -6,13 +6,13 @@ class CreateBooks < ActiveRecord::Migration
       t.string :publisher
       t.string :published_date
       t.string :categories
-      t.float :average_rating
-      t.integer :ratings_count
       t.string :description
       t.float :price
       t.string :isbn
       t.string :buy_link
       t.string :image_link
+
+      t.timestamps null: false
     end
   end
 end
