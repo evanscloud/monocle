@@ -1,14 +1,10 @@
 class Book < ActiveRecord::Base
   belongs_to :collection
-  has_many :book_collections
+  has_many :book_collections, dependent: :destroy
   has_many :collections, :through => :book_collections
   validates_presence_of :title, :author
 
   include GoogleBooks
-
-  # def self.search(title)
-  #   GoogleBooks.search("#{title}").first
-  # end
 
   def info(book)
     self.title = book.title

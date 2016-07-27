@@ -5,6 +5,6 @@ class Collection < ActiveRecord::Base
   validates :name, :presence => true
 
   def books_attributes=(books_attributes)
-    self.create_book(books_attributes) if book_id.nil?
+    self.create_book(books_attributes) if id.nil?
   end
 end
