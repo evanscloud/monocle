@@ -26,7 +26,7 @@ class CollectionsController < ApplicationController
   def create
     @collection = current_user.collections.build(collection_params)
     if @collection.save
-      redirect_to user_collection_path(@collection.user_id, @collection.id), alert: "The collection has been added to your bookshelf. High fives all around!"
+      redirect_to user_collections_path(@collection.user_id), alert: "The collection has been added to your bookshelf. High fives all around!"
     else
       render :new, alert: "Sorry, there seems to be an error. Please try again."
     end
@@ -45,7 +45,7 @@ class CollectionsController < ApplicationController
 
   def update
     if @collection.update(collection_params)
-      redirect_to user_collection_path(@collection.user_id, @collection.id), alert: "Looks like it updated successfully. Woohoo!"
+      redirect_to collection_path(@collection.id), alert: "Looks like things have updated successfully. Woohoo!"
     else
       render :edit, alert: "Looks like something went wrong. Please try again."
     end
@@ -53,17 +53,16 @@ class CollectionsController < ApplicationController
 
   def destroy
     @collection.destroy
-    redirect_to user_collections_path, alert: "Deleted successfully! Huzzah!"
+    redirect_to user_collections_path(current_user.id), alert: "Deleted successfully! Huzzah!"
   end
 
   private
+
   def set_collection
     @collection = Collection.find(params[:id])
   end
 
   def collection_params
-    params.require(:collection).permit(:name, :user_id)
+    params.require(:collection).permit(:name, :user_id, books_attributes: [:title, :author, :publisher, :published_date, :categories, :description, :price, :isbn, :buy_link, :image_link])
   end
 end
-
-# , comment_ids: [], comments_attributes: [:content]
