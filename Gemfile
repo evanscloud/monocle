@@ -43,6 +43,8 @@ gem 'google-api-client'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
+# formatting
+gem 'awesome_print'
 # Build seed data
 # gem 'faker'
 
