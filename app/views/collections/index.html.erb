@@ -12,7 +12,7 @@
       <h5>Where did everyone go...?</h5>
     <% else %>
       <% @collections.each do |collection| %>
-        <li><%= link_to collection.name, user_collection_path(collection.user_id, collection.id) %>
+        <li><%= link_to collection.name, collection_path(collection.id) %>
           <% if params[:user_id].nil? %>
             by <%= link_to collection.user.username, user_collections_path(collection.user) %>
           <% end %>
