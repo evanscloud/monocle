@@ -3,7 +3,6 @@
   <h3>By <%= @book.author %></h3><br>
 
   <div class="custbook-info">
-
     <img class="image-display" src= "<%= @book.image_link %>" target="_blank"><br>
 
     <p>Publisher: <%= @book.publisher.nil? ? "unavailable" : @book.publisher %></p>
@@ -12,17 +11,16 @@
     <p>Category: <%= @book.categories.nil? ? "unavailable" : @book.categories %></p>
     <p>Description: <%= @book.description.nil? ? "unavailable" : @book.description %></p><br>
 
-    <p>Current Price (Based on Google): <%= @book.price.nil? ? "unavailable" : @book.price %></p>
     <p>ISBN: <%= @book.isbn.nil? ? "unavailable" : @book.isbn %></p>
-    <p>Purchase Now: <%= @book.buy_link.nil? ? "unavailable" : @book.buy_link %></p><br>
-
-    <p>Average Rating: <%= @book.average_rating.nil? ? "unavailable" : @book.average_rating %></p>
-    <p>Ratings Count: <%= @book.ratings_count.nil? ? "unavailable" : @book.ratings_count %></p>
+    <p>Current Price (retail): <%= @book.price.nil? ? "unavailable" : "$ #{@book.price}" %></p>
+    <p>Purchase Now: <%= @book.buy_link.nil? ? "unavailable" : @book.buy_link %></p>
   </div>
 </div>
 
 <div class="custbook-container">
   <p>
-    <%= button_to "Delete Book From #{@book.collection}", {:controller => :collections, :action => "destroy", :id => @collection.id}, :method => :delete, class: "btn btn-default" %>
+    <%= button_to "Edit Book", edit_book_path(@book.id), :method => :get, class: "btn btn-default" %><br>
+    <%= button_to "Delete Book", {:controller => :books, :action => "destroy", :id => @book.id}, :method => :delete, class: "btn btn-default" %>
+    <%= button_to "Back", user_collections_path(@collection.id), method: 'get', class: "btn btn-default" %>
   </p>
 </div>
