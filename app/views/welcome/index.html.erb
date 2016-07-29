@@ -4,22 +4,33 @@
 
     <h3>Ready to fill your own bookshelf?</h3>
 
-    <h3><%= link_to 'Create a Collection', new_user_collection_path(current_user), class: "btn btn-lg btn-default" %></h3><br>
+    <h3><%= link_to 'Create a Collection', new_user_collection_path(current_user), class: "btn btn-lg btn-default" %></h3>
 
     <% if !current_user.collections.empty? %>
+    <div class="custcontainer">
       <u><h3>Your Bookshelf</h3></u><br>
 
       <div class="custlist">
-        <% current_user.collections.each do |collection| %>
-          <li><%= link_to collection.name, user_collection_path(collection.user_id, collection.id) %></li>
-        <% end %>
+        <table align="center">
+          <tr>
+            <th><u>NAME</u></th>
+            <th><u>COUNT</u></th>
+          </tr>
+          <% current_user.collections.each do |collection| %>
+          <tr>
+            <td><%= link_to collection.name, collection_path(collection.id) %></td>
+            <td><%= collection.books.count %> book(s)</td>
+          <% end %>
+          </tr>
+        </table>
       </div>
     <% end %>
 
-  <% else %>
-    <h1>Welcome to Monocle</h1>
+    <% else %>
+      <h1>Welcome to Monocle</h1>
 
-    <h3>Ready to fill your own bookshelf?</h3>
+      <h3>Ready to fill your own bookshelf?</h3>
+    </div>
 
     <h3><%= link_to 'Log in', new_user_session_path, class: "btn btn-lg btn-default" %> or <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-default" %></h3>
   <% end %>
