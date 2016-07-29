@@ -1,0 +1,68 @@
+<div class="custform">
+  <h1>Edit <%= @book.title %></h1>
+
+  <div class="form-input">
+    <%= form_for @book, :url => book_path(@book.id) do |f| %>
+    <%= render "book_errors" %>
+
+      <div class="field">
+        <%= f.label "Title" %>
+        <%= f.text_field :title, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Author" %>
+        <%= f.text_field :author, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Publisher" %>
+        <%= f.text_field :publisher, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Published Date" %>
+        <%= f.text_field :published_date, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Category" %>
+        <%= f.text_field :categories, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Description" %>
+        <%= f.text_field :description, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Price" %>
+        <%= f.text_field :price, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "ISBN" %>
+        <%= f.text_field :isbn, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Buy Link" %>
+        <%= f.text_field :buy_link, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label "Image Link" %>
+        <%= f.text_field :image_link, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update Book", class: "btn btn-default" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+<div class="custcontainer">
+  <h3><%= button_to "Back", collection_books_path(@book.collection_ids.first), method: 'get', class: "btn btn-default" %></h3>
+</div>
