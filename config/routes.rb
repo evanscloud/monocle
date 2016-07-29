@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'books/search', to: "books#search", as: :search
+  
+  resources :collections, only: [:index]
+
   root to: 'welcome#index'
 
 end

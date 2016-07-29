@@ -14,31 +14,35 @@
 ActiveRecord::Schema.define(version: 20160713145112) do
 
   create_table "book_collections", force: :cascade do |t|
-    t.integer "book_id"
-    t.integer "collection_id"
+    t.integer  "book_id"
+    t.integer  "collection_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   add_index "book_collections", ["book_id"], name: "index_book_collections_on_book_id"
   add_index "book_collections", ["collection_id"], name: "index_book_collections_on_collection_id"
 
   create_table "books", force: :cascade do |t|
-    t.string  "title"
-    t.string  "author"
-    t.string  "publisher"
-    t.string  "published_date"
-    t.string  "categories"
-    t.float   "average_rating"
-    t.integer "ratings_count"
-    t.string  "description"
-    t.float   "price"
-    t.string  "isbn"
-    t.string  "buy_link"
-    t.string  "image_link"
+    t.string   "title"
+    t.string   "author"
+    t.string   "publisher"
+    t.string   "published_date"
+    t.string   "categories"
+    t.string   "description"
+    t.float    "price"
+    t.string   "isbn"
+    t.string   "buy_link"
+    t.string   "image_link"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "collections", force: :cascade do |t|
-    t.string  "name"
-    t.integer "user_id"
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "collections", ["user_id"], name: "index_collections_on_user_id"
