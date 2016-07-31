@@ -1,6 +1,5 @@
 <div class="form-input">
-
-  <%= form_for @book, :url => user_collection_books_path do |f| %>
+  <%= form_for @book, :url => search_path do |f| %>
   <%= render "book_errors" %>
 
     <div class="field">
@@ -8,7 +7,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Search", class: "btn btn-default" %>
+      <%= f.submit "Search Book", class: "btn btn-default" %>
     </div>
   <% end %>
 </div>
