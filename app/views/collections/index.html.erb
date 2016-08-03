@@ -32,6 +32,6 @@
 
 <% if params[:user_id] %>
   <div class="custbtn-container">
-    <h3><%= button_to "New Collection", new_user_collection_path, method: 'get', class: "btn btn-default" %></h3><br>
+    <%= button_to "New Collection", new_user_collection_path, method: 'get', class: "btn btn-block" %>
   </div>
 <% end %>

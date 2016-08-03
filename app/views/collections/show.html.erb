@@ -23,7 +23,7 @@
 </div>
 
 <div class="custbtn-container">
-  <h3><%= button_to "Edit #{@collection.name}", edit_collection_path(@collection.id, @collection), :method => :get, class: "btn btn-default" %></h3>
-  <h3><%= button_to "Delete #{@collection.name}", {:controller => :collections, :action => "destroy", :id => @collection.id}, :method => :delete, class: "btn btn-default" %></h3>
-  <h3><%= button_to "Back", user_collections_path(@collection.user_id), method: 'get', class: "btn btn-default" %></h3>
+  <%= button_to "Edit Collection", edit_collection_path(@collection.id, @collection), :method => :get, class: "btn btn-block" %>
+  <%= button_to "Delete Collection", {:controller => :collections, :action => "destroy", :id => @collection.id}, :method => :delete, class: "btn btn-block" %>
+  <%= button_to "Back", user_collections_path(@collection.user_id), method: 'get', class: "btn btn-block" %>
 </div>
