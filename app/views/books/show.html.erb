@@ -17,10 +17,8 @@
   </div>
 </div>
 
-<div class="custbook-container">
-  <p>
-    <%= button_to "Edit Book", edit_book_path(@book.id), :method => :get, class: "btn btn-default" %><br>
-    <%= button_to "Delete Book", {:controller => :books, :action => "destroy", :id => @book.id}, :method => :delete, class: "btn btn-default" %>
-    <%= button_to "Back", user_collections_path(@collection.id), method: 'get', class: "btn btn-default" %>
-  </p>
+<div class="custbtn-container">
+  <%= button_to "Edit Book", edit_book_path(@book.id), :method => :get, class: "btn btn-block" %>
+  <%= button_to "Delete Book", {:controller => :books, :action => "destroy", :id => @book.id}, :method => :delete, class: "btn btn-block" %>
+  <%= button_to "Back", user_collections_path(@user.id), method: 'get', class: "btn btn-block" %>
 </div>
