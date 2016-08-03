@@ -1,6 +1,7 @@
+<%= render "book_errors" %>
+
 <div class="form-input">
   <%= form_for @book, :url => search_path do |f| %>
-  <%= render "book_errors" %>
 
     <div class="field">
       <%= f.text_field :title, class: "form-control", autofocus: true %>

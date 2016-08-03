@@ -1,7 +1,8 @@
+<%= render "collection_errors" %>
+
 <div class="form-input">
 
   <%= form_for @collection, url: {controller: "collections", action: "create"} do |f| %>
-  <%= render "collection_errors" %>
 
     <div class="field">
       <%= f.label :name %><br>

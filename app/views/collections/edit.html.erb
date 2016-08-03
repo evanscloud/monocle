@@ -1,9 +1,10 @@
+<%= render "collection_errors" %>
+
 <div class="custform">
   <h1>Edit <%= @collection.name %> Collection</h1>
 
   <div class="form-input">
     <%= form_for @collection, :url => collection_path(@collection.id) do |f| %>
-    <%= render "collection_errors" %>
 
       <div class="field">
         <%= f.label :name %><br>

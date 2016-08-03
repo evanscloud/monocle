@@ -1,9 +1,10 @@
+<%= render "book_errors" %>
+
 <div class="custform">
   <h1>Edit <%= @book.title %></h1>
 
   <div class="form-input">
     <%= form_for @book, :url => book_path(@book.id) do |f| %>
-    <%= render "book_errors" %>
 
       <div class="field">
         <%= f.label "Title" %>
