@@ -1,7 +1,10 @@
 <div class="custcontainer">
   <u><h1><%= @collection.name %></h1></u>
 
-  <h3><%= button_to "Search a Book", new_collection_book_path(@collection.id), method: 'get', class: "btn btn-block" %></h3><br>
+  <div class="custbtn-container">
+    <%= button_to "Search a Book", new_collection_book_path(@collection.id), method: 'get', class: "btn btn-block" %>
+    <%= button_to "Add a Book", new_collection_book_path(@collection.id), method: 'get', class: "btn btn-block" %>
+  </div>
 
   <div class="custlist">
     <% if @collection.books.empty? %>
@@ -15,7 +18,7 @@
 </div>
 
 <div class="custbtn-container">
-  <%= button_to "Edit Collection", edit_collection_path(@collection.id, @collection), :method => :get, class: "btn btn-block" %>
-  <%= button_to "Delete Collection", {:controller => :collections, :action => "destroy", :id => @collection.id}, :method => :delete, class: "btn btn-block" %>
+  <%= button_to "Edit Collection", edit_collection_path(@collection.id, @collection), method: 'get', class: "btn btn-block" %>
+  <%= button_to "Delete Collection", {controller: 'collections', action: "destroy", id: @collection.id}, :method => :delete, class: "btn btn-block" %>
   <%= button_to "Back", user_collections_path(@collection.user_id), method: 'get', class: "btn btn-block" %>
 </div>
