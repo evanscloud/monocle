@@ -1,7 +1,7 @@
 <div class="custcontainer">
   <u><h1><%= @collection.name %></h1></u>
 
-  <h3><%= button_to "Search a Book", search_path, method: 'get', class: "btn btn-block" %></h3><br>
+  <h3><%= button_to "Search a Book", new_collection_book_path(@collection.id), method: 'get', class: "btn btn-block" %></h3><br>
 
   <div class="custlist">
     <% if @collection.books.empty? %>
@@ -12,14 +12,6 @@
       <% end %>
     <% end %>
   </div><br>
-
-  <div class="custform">
-    <u><h3>Enter a Custom Book</h3></u>
-    <%= form_for @collection do |f| %>
-      <%= render partial: 'add_book', locals: { f: f } %>
-      <%= f.submit "Add Book", class: "btn btn-default" %>
-    <% end %>
-  </div>
 </div>
 
 <div class="custbtn-container">
