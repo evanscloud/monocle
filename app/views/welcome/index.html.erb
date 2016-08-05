@@ -4,7 +4,9 @@
 
     <h3>Ready to fill your own bookshelf?</h3>
 
-    <h3><%= link_to 'Create a Collection', new_user_collection_path(current_user), class: "btn btn-lg btn-default" %></h3>
+    <div class="custbtn-container">
+      <%= link_to 'Create a Collection', new_user_collection_path(current_user), class: "btn btn-lg btn-default" %>
+    </div>
 
     <% if !current_user.collections.empty? %>
     <div class="custcontainer">
@@ -32,6 +34,9 @@
       <h3>Ready to fill your own bookshelf?</h3>
     </div>
 
-    <h4><%= link_to 'Log in', new_user_session_path, class: "btn btn-lg btn-default" %> or <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-default" %></h4>
+    <div class="custbtn-container">
+      <%= link_to 'Log in', new_user_session_path, class: "btn btn-lg btn-default" %> <h4>or</h4> <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-lg btn-default" %>
+    </div>
+
   <% end %>
 </div>
