@@ -5,12 +5,12 @@
 
     <div class="field">
       <%= book_field.label "Title" %>
-      <%= book_field.text_field :title, class: "form-control", autofocus: true %>
+      <%= book_field.text_field :title, class: "form-control", placeholder: "required", autofocus: true %>
     </div>
 
     <div class="field">
       <%= book_field.label "Author" %>
-      <%= book_field.text_field :author, class: "form-control", autofocus: true %>
+      <%= book_field.text_field :author, class: "form-control", placeholder: "required", autofocus: true %>
     </div>
 
     <div class="field">
@@ -21,7 +21,7 @@
     <div class="field">
       <%= book_field.label "Published Date" %>
       <%= book_field.text_field :published_date, class: "form-control", autofocus: true %>
-    </div>
+    </div><br>
 
     <div class="field">
       <%= book_field.label "Category" %>
@@ -30,8 +30,8 @@
 
     <div class="field">
       <%= book_field.label "Description" %>
-      <%= book_field.text_field :description, class: "form-control", autofocus: true %>
-    </div>
+      <%= book_field.text_area :description, class: "form-control", autofocus: true %>
+    </div><br>
 
     <div class="field">
       <%= book_field.label "Price" %>

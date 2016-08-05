@@ -2,13 +2,13 @@
   <u><h1><%= @collection.name %></h1></u>
 
   <div class="custbtn-container">
-    <%= button_to "Search a Book", new_collection_book_path(@collection.id), method: 'get', class: "btn btn-block" %>
+    <%= button_to "Search a Book", collection_search_book_path(@collection.id), method: 'get', class: "btn btn-block" %>
     <%= button_to "Add a Book", new_collection_book_path(@collection.id), method: 'get', class: "btn btn-block" %>
   </div>
 
   <div class="custlist">
     <% if @collection.books.empty? %>
-      <h5>it's kinda lonely here...</h5>
+      <h5>It's kinda lonely here...</h5>
     <% else %>
       <% @collection.books.each do |book| %>
         <li><%= link_to book.title, book_path(book.id) %></li>
