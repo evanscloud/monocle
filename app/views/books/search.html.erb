@@ -1,0 +1,10 @@
+<div class="custform">
+  <h1>Search a Book</h1>
+
+  <h5>Please enter a book title (including the author helps!)</h5>
+  <%= render "search_form" %>
+</div>
+
+<div class="custbtn-container">
+  <%= button_to "Back", user_collections_path(current_user), method: 'get', class: "btn btn-block" %>
+</div>
