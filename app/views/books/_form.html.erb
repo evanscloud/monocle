@@ -1,0 +1,62 @@
+<%= render "book_errors" %>
+
+<div class="form-input">
+  <%= form_for @collection do |f| %>
+    <%= f.fields_for :books, @collection.books.build do |book_field| %>
+
+    <div class="field">
+      <%= book_field.label "Title" %>
+      <%= book_field.text_field :title, class: "form-control", placeholder: "required", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= book_field.label "Author" %>
+      <%= book_field.text_field :author, class: "form-control", placeholder: "required", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= book_field.label "Publisher" %>
+      <%= book_field.text_field :publisher, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= book_field.label "Published Date" %>
+      <%= book_field.text_field :published_date, class: "form-control", autofocus: true %>
+    </div><br>
+
+    <div class="field">
+      <%= book_field.label "Category" %>
+      <%= book_field.text_field :categories, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= book_field.label "Description" %>
+      <%= book_field.text_area :description, class: "form-control", autofocus: true %>
+    </div><br>
+
+    <div class="field">
+      <%= book_field.label "Price" %>
+      <%= book_field.text_field :price, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= book_field.label "ISBN" %>
+      <%= book_field.text_field :isbn, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= book_field.label "Buy Link" %>
+      <%= book_field.text_field :buy_link, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= book_field.label "Image Link" %>
+      <%= book_field.text_field :image_link, class: "form-control", autofocus: true %>
+    </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Create Book", class: "btn btn-default" %>
+    </div><br>
+  <% end %>
+</div>
