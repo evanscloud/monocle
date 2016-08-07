@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show], shallow: true do
     resources :collections do
       resources :books
+      get "books/search", to: "books#search", as: "search_book"
     end
   end
 
-  get 'books/search', to: "books#search", as: :search
-  
   resources :collections, only: [:index]
 
   root to: 'welcome#index'
