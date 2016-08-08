@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :collections do
       resources :books
       get "books/search", to: "books#search", as: "search_book"
+      post "books/result", to: "books#result", as: "search_result"
     end
   end
 
