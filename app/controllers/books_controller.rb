@@ -1,24 +1,9 @@
 class BooksController < ApplicationController
-  # before_action :set_collection
+  before_action :authenticate_user!
+  before_action :set_collection, except: [:show, :edit, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-  end
-
-  def search
-    book = Book.search(params[:book][:title]).first
-    if !book.nil?
-      @book.info(book)
-      book_params = @book.attributes
-      @book = @collection.books.build(book_params)
-      if @book.save
-        redirect_to book_path(@book.id), alert: "The book has been added to your collection. Awesome sauce!"
-      else
-        render :new, alert: "Sorry, we couldn't find that. Please try a different search."
-      end
-    else
-      redirect_to new_collection_book_path(@collection.id), alert: "Sorry, we couldn't find that. Please try a different search."
-    end
   end
 
   def new
@@ -31,9 +16,6 @@ class BooksController < ApplicationController
 
   def create
     @book = @collection.books.build(book_params)
-    binding.pry
-    @book.collection = @collection
-    @book.collections << @collection
     if @book.save
       redirect_to book_path(@book.id), alert: "The book has been added to your collection. Awesome sauce!"
     else
@@ -43,10 +25,10 @@ class BooksController < ApplicationController
 
   def show
     @user = current_user
+    @collection = @book.collections.first
     if @book.nil?
       redirect_to user_collections_path(current_user), alert: "Sorry, couldn't find that book."
     end
-    # @book = @collection.books.find(params[:id])
   end
 
   def edit
@@ -68,8 +50,7 @@ class BooksController < ApplicationController
   private
 
     def set_collection
-      @book = Book.find(params[:id])
-      @collection = Collection.find(@book.collection_ids.first)
+      @collection = Collection.find(params[:collection_id])
     end
 
     def set_book
