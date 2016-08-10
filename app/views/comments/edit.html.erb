@@ -1,0 +1,24 @@
+<%= render "comment_errors" %>
+
+<div class="custcontainer">
+  <u><h1>Update Your Comment</h1></u><br>
+
+  <div class="form-input">
+    <%= form_for @comment do |f| %>
+      <%= f.hidden_field :user_id, value: @comment.user_id %>
+      <%= f.hidden_field :collection_id, value: @comment.collection_id %>
+
+      <div class="field">
+        <%= f.text_area :content, class: "form-control", autofocus: true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update Comment", class: 'btn btn-sm btn-default' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="custbtn-container">
+  <%= button_to "Back", collection_path(@comment.collection_id), method: 'get', class: "btn btn-block" %>
+</div>

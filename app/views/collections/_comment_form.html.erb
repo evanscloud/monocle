@@ -1,0 +1,14 @@
+<div class="form-input">
+  <%= form_for Comment.new do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :collection_id, value: @collection.id %>
+
+    <div class="field">
+      <%= f.text_area :content, class: "form-control", placeholder: "Add a comment...", autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Add Comment", class: 'btn btn-sm btn-default' %>
+    </div>
+  <% end %>
+</div>
