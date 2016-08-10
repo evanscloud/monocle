@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show], shallow: true do
     resources :collections do
       resources :books
+      resources :comments
     end
   end
 
