@@ -2,7 +2,7 @@
   <u><h1><%= @collection.name %></h1></u>
 
   <div class="custbtn-container">
-    <%= button_to "Add a Book", new_collection_book_path(@collection.id), method: 'get', class: "btn btn-block" %>
+    <%= button_to "Add a Book", new_collection_book_path(@collection.id), method: "get", class: "btn btn-block" %>
   </div>
 
   <div class="custlist">
@@ -10,14 +10,36 @@
       <h5>It's kinda lonely here...</h5>
     <% else %>
       <% @collection.books.each do |book| %>
-        <li><%= link_to book.title, book_path(book.id) %></li>
+        <li><%= link_to "#{book.title} by #{book.author}", book_path(book.id) %></li>
       <% end %>
     <% end %>
-  </div><br>
+  </div><br><br>
+
+  <div class="comment-list">
+    <% if current_user %>
+      <%= render "comment_form" %>
+    <% else %>
+      <%= link_to "Please log in to leave a comment.", new_user_session_path %>
+    <% end %><br>
+
+    <u><strong><h4>Comments</h4></strong></u><br>
+
+    <% if @collection.comments.empty? %>
+      <h5>Be the first to comment!</h5>
+    <% else %>
+      <% @collection.comments.each do |comment| %>
+        <p><%= comment.content %></p>
+        Posted by: <%= comment.user.username %>
+        <% if comment.user_id = current_user.id %>
+          (<%= link_to "edit", {controller: "comments", action: "edit", id: comment.id}, method: "get" %>, <%= link_to "delete", {controller: "comments", action: "destroy", id: comment.id}, method: "delete" %>)
+        <% end %>
+      <% end %><br><br>
+    <% end %>
+  </div>
 </div>
 
 <div class="custbtn-container">
-  <%= button_to "Edit Collection", edit_collection_path(@collection.id, @collection), method: 'get', class: "btn btn-block" %>
-  <%= button_to "Delete Collection", {controller: 'collections', action: "destroy", id: @collection.id}, :method => :delete, class: "btn btn-block" %>
-  <%= button_to "Back", user_collections_path(@collection.user_id), method: 'get', class: "btn btn-block" %>
+  <%= button_to "Edit Collection", edit_collection_path(@collection.id, @collection), method: "get", class: "btn btn-block" %>
+  <%= button_to "Delete Collection", {controller: "collections", action: "destroy", id: @collection.id}, method: "delete", class: "btn btn-block" %>
+  <%= button_to "Back", user_collections_path(@collection.user_id), method: "get", class: "btn btn-block" %>
 </div>
