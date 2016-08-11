@@ -11,6 +11,29 @@
     <% if @collections.empty? %>
       <h5>Where did everyone go...?</h5>
     <% else %>
+    <u><h3>Little Tibits</h3></u>
+
+    <table align="center">
+      <tr>
+        <td>Recently Added:</td>
+        <td>
+          <% Collection.most_recent.each do |collection| %>
+            <%= collection.name %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td>Most Books:</td>
+        <td>
+          <% Collection.most_books.each do |collection| %>
+            <%= collection.name %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+
+    <hr>
+    
     <table align="center">
       <tr>
         <th><u>NAME</u></th>

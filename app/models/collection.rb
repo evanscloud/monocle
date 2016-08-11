@@ -13,7 +13,7 @@ class Collection < ActiveRecord::Base
   end
 
   def self.most_recent
-    self.order(created_at: :desc)
+    self.order(created_at: :desc).limit(1)
   end
 
   def self.most_books
