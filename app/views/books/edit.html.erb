@@ -23,7 +23,7 @@
 
       <div class="field">
         <%= f.label "Published Date" %>
-        <%= f.text_field :published_date, class: "form-control", autofocus: true %>
+        <%= f.date_field :published_date, :order => [:month, :day, :year], class: "form-control", autofocus: true %>
       </div><br>
 
       <div class="field">

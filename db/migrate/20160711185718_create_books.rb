@@ -11,7 +11,6 @@ class CreateBooks < ActiveRecord::Migration
       t.string :isbn
       t.string :buy_link
       t.string :image_link
-      t.integer :user_id
 
       t.timestamps null: false
     end

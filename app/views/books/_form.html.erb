@@ -1,5 +1,3 @@
-<%= render "book_errors" %>
-
 <div class="form-input">
   <%= form_for @collection do |f| %>
     <%= f.fields_for :books, @collection.books.build do |book_field| %>
@@ -21,7 +19,7 @@
 
     <div class="field">
       <%= book_field.label "Published Date" %>
-      <%= book_field.text_field :published_date, class: "form-control", autofocus: true %>
+      <%= book_field.date_field :published_date, :order => [:month, :day, :year], class: "form-control", autofocus: true %>
     </div><br>
 
     <div class="field">
@@ -60,3 +58,63 @@
     </div><br>
   <% end %>
 </div>
+
+<!-- <div class="form-input">
+  <%= form_for @book, :url => collection_books_path(@collection.id) do |f| %>
+
+    <div class="field">
+      <%= f.label "Title" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "required", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Author" %>
+      <%= f.text_field :author, class: "form-control", placeholder: "required", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Publisher" %>
+      <%= f.text_field :publisher, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Published Date" %>
+      <%= f.text_field :published_date, class: "form-control", autofocus: true %>
+    </div><br>
+
+    <div class="field">
+      <%= f.label "Category" %>
+      <%= f.text_field :categories, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Description" %>
+      <%= f.text_area :description, class: "form-control", autofocus: true %>
+    </div><br>
+
+    <div class="field">
+      <%= f.label "Price" %>
+      <%= f.text_field :price, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label "ISBN" %>
+      <%= f.text_field :isbn, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Buy Link" %>
+      <%= f.text_field :buy_link, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Image Link" %>
+      <%= f.text_field :image_link, class: "form-control", autofocus: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Add Book", class: "btn btn-default" %>
+    </div>
+
+  <% end %>
+</div> -->
