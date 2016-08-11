@@ -27,13 +27,14 @@ ActiveRecord::Schema.define(version: 20160810140613) do
     t.string   "title"
     t.string   "author"
     t.string   "publisher"
-    t.string   "published_date"
+    t.date     "published_date"
     t.string   "categories"
     t.string   "description"
     t.float    "price"
     t.string   "isbn"
     t.string   "buy_link"
     t.string   "image_link"
+    t.integer  "user_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -71,7 +72,6 @@ ActiveRecord::Schema.define(version: 20160810140613) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
-    t.integer  "role",                   default: 1
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

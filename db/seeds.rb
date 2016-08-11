@@ -3,7 +3,6 @@ User.create(
   email: "master@email.com",
   password: "qqqqqq",
   password_confirmation: "qqqqqq",
-  role: 0
 )
 
 User.create(
@@ -11,7 +10,6 @@ User.create(
   email: "user1@email.com",
   password: "qqqqqq",
   password_confirmation: "qqqqqq",
-  role: 1
 )
 
 User.create(
@@ -19,7 +17,6 @@ User.create(
   email: "user2@email.com",
   password: "qqqqqq",
   password_confirmation: "qqqqqq",
-  role: 1
 )
 
 User.create(
@@ -27,7 +24,6 @@ User.create(
   email: "user3@email.com",
   password: "qqqqqq",
   password_confirmation: "qqqqqq",
-  role: 1
 )
 
 User.create(
@@ -35,7 +31,6 @@ User.create(
   email: "user4@email.com",
   password: "qqqqqq",
   password_confirmation: "qqqqqq",
-  role: 1
 )
 
 User.create(
@@ -43,5 +38,4 @@ User.create(
   email: "user5@email.com",
   password: "qqqqqq",
   password_confirmation: "qqqqqq",
-  role: 1
 )

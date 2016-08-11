@@ -5,10 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
-  enum role: [:admin, :user]
-
-  after_initialize :set_default_role
-
   has_many :collections, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 
@@ -20,10 +16,6 @@ class User < ActiveRecord::Base
      user.email = auth.info.email
      user.password = Devise.friendly_token[0,20]
    end
-  end
-
-  def set_default_role
-    self.role ||= :user
   end
 
 end
