@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
     if @comment.save
-      redirect_to collection_path(@comment.collection)
+      redirect_to collection_path(@comment.collection), alert: "New comment!"
     else
       render :new, alert: "Sorry, there seems to be an error. Please try again."
     end
@@ -22,16 +22,20 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comment_params)
-      redirect_to collection_path(@comment.collection_id), alert: "Your comment has been given the stamp of approval!"
+    if current_user.id = @comment.user_id
+      if @comment.update(comment_params)
+        redirect_to collection_path(@comment.collection_id), alert: "Your comment has been given the stamp of approval!"
+      else
+        render :edit, alert: "Looks like something went wrong. Please try again."
+      end
     else
-      render :edit, alert: "Looks like something went wrong. Please try again."
+      redirect_to collection_path(@comment.collection_id), alert: "Sorry, you can't edit someone else's comments (I'm watching you...)."
     end
   end
 
   def destroy
     @comment.destroy
-    redirect_to collection_path(@comment.collection_id), alert: "Shhhh, that comment never happened..."
+    redirect_to collection_path(@comment.collection_id), alert: "Shhhh, that never happened..."
   end
 
   private

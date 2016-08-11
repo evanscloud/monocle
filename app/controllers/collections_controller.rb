@@ -1,12 +1,12 @@
 class CollectionsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:user_id]
       @user = current_user
       if @user.nil?
-        redirect_to root_path, alert: "ALERT! User not found."
+        redirect_to root_path, alert: "ALERT! Can't access user."
       else
         @collections = @user.collections
       end
@@ -16,7 +16,7 @@ class CollectionsController < ApplicationController
   end
 
   def new
-    if current_user.username = params[:user_id]
+    if current_user.id = params[:user_id]
       @collection = Collection.new
     else
       redirect_to new_user_collection_path(current_user), alert: "Sorry, you can only create a collection for yourself."
@@ -33,7 +33,6 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @user = current_user
     @books = @collection.books
     if @collection.nil?
       redirect_to user_collections_path(@collection), alert: "Sorry, collection not found."
@@ -44,10 +43,14 @@ class CollectionsController < ApplicationController
   end
 
   def update
-    if @collection.update(collection_params)
-      redirect_to collection_path(@collection.id), alert: "Looks like things have updated successfully. Woohoo!"
+    if current_user.id = @collection.user_id
+      if @collection.update(collection_params)
+        redirect_to collection_path(@collection.id), alert: "Looks like things have updated successfully. Woohoo!"
+      else
+        render :edit, alert: "Looks like something went wrong. Please try again."
+      end
     else
-      render :edit, alert: "Looks like something went wrong. Please try again."
+      render :show, alert: "Sorry, you can only edit your own collections (sneaky!)."
     end
   end
 

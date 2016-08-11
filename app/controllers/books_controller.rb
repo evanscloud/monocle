@@ -3,11 +3,8 @@ class BooksController < ApplicationController
   before_action :set_collection, except: [:show, :edit, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
-  def index
-  end
-
   def new
-    if @collection.id = params[:collection_id]
+    if @collection.user_id = current_user.id
       @book = Book.new
     else
       redirect_to collection_path(@collection.id), alert: "Sorry, you can only add to your own collection."
@@ -24,7 +21,6 @@ class BooksController < ApplicationController
   end
 
   def show
-    @user = current_user
     @collection = @book.collections.first
     if @book.nil?
       redirect_to user_collections_path(current_user), alert: "Sorry, couldn't find that book."
@@ -35,10 +31,12 @@ class BooksController < ApplicationController
   end
 
   def update
-    if @book.update(book_params)
-      redirect_to book_path(@book.id), alert: "Your book has returned from it's glorious journey across the galaxy."
-    else
-      render :edit, alert: "Looks like something went wrong. Please try again."
+    if current_user.id = @book.collections.first.user_id
+      if @book.update(book_params)
+        redirect_to book_path(@book.id), alert: "Your book has returned from it's glorious journey across the galaxy."
+      else
+        render :edit, alert: "Looks like something went wrong. Please try again."
+      end
     end
   end
 
