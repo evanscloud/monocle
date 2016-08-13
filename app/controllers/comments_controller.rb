@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if current_user.id = @comment.user_id
+    if current_user.id == @comment.user_id
       if @comment.update(comment_params)
         redirect_to collection_path(@comment.collection_id), alert: "Your comment has been given the stamp of approval!"
       else

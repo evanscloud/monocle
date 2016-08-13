@@ -16,7 +16,7 @@ class CollectionsController < ApplicationController
   end
 
   def new
-    if current_user.id = params[:user_id]
+    if current_user.id == params[:user_id].to_i
       @collection = Collection.new
     else
       redirect_to new_user_collection_path(current_user), alert: "Sorry, you can only create a collection for yourself."
@@ -43,7 +43,7 @@ class CollectionsController < ApplicationController
   end
 
   def update
-    if current_user.id = @collection.user_id
+    if current_user.id == @collection.user_id
       if @collection.update(collection_params)
         redirect_to collection_path(@collection.id), alert: "Looks like things have updated successfully. Woohoo!"
       else

@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def new
-    if @collection.user_id = current_user.id
+    if @collection.user_id == current_user.id
       @book = Book.new
     else
       redirect_to collection_path(@collection.id), alert: "Sorry, you can only add to your own collection."
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   end
 
   def update
-    if current_user.id = @book.collections.first.user_id
+    if current_user.id == @book.collections.first.user_id
       if @book.update(book_params)
         redirect_to book_path(@book.id), alert: "Your book has returned from it's glorious journey across the galaxy."
       else
