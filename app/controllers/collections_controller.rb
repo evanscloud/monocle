@@ -61,11 +61,11 @@ class CollectionsController < ApplicationController
 
   private
 
-  def set_collection
-    @collection = Collection.find(params[:id])
-  end
+    def set_collection
+      @collection = Collection.find(params[:id])
+    end
 
-  def collection_params
-    params.require(:collection).permit(:name, :user_id, books_attributes: [:title, :author, :publisher, :published_date, :categories, :description, :price, :isbn, :buy_link, :image_link])
-  end
+    def collection_params
+      params.require(:collection).permit(:name, :user_id, books_attributes: [:title, :author, :publisher, :published_date, :categories, :description, :price, :isbn, :buy_link, :image_link])
+    end
 end
