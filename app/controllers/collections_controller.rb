@@ -3,7 +3,7 @@ class CollectionsController < ApplicationController
   before_action :set_collection, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:user_id]
+    if params[:user_id] && current_user.id == params[:user_id].to_i
       @user = current_user
       if @user.nil?
         redirect_to root_path, alert: "ALERT! Can't access user."
