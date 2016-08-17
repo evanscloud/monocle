@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to collection_path(@comment.collection), alert: "New comment!"
     else
-      render :new, alert: "Sorry, there seems to be an error. Please try again."
+      redirect_to collection_path(params[:collection_id]), alert: "Sorry, there seems to be an error. Please try again."
     end
   end
 
