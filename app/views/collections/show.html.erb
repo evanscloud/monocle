@@ -48,6 +48,6 @@
   <% if current_user.nil? %>
     <%= button_to "Back", collections_path, method: "get", class: "btn btn-block" %>
   <% else %>
-    <%= button_to "Back", user_collections_path(@collection.user_id), method: "get", class: "btn btn-block" %>
+    <%= button_to "Back", user_collections_path(current_user.id), method: "get", class: "btn btn-block" %>
   <% end %>
 </div>
