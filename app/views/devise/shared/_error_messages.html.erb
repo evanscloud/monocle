@@ -1,0 +1,7 @@
+<% if resource.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger alert-devise">
+      <%= devise_error_messages! %>
+    </div>
+  </div>
+<% end %>
