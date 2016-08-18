@@ -44,11 +44,8 @@
       </tr>
       <% @collections.each do |collection| %>
       <tr>
-        <td><%= link_to collection.name, collection_path(collection.id) %>
-        <% if params[:user_id].nil? %>
-          by <%= link_to collection.user.username, user_collections_path(collection.user) %></td>
-        <% end %>
-          <td><%= collection.books.count %> book(s)</td>
+        <td><%= link_to "#{collection.name} by #{collection.user.username}", collection_path(collection.id) %></td>
+        <td><%= collection.books.count %> book(s)</td>
       </tr>
       <% end %>
     </table>
