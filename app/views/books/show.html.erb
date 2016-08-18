@@ -6,7 +6,7 @@
     <img class="image-display" src= "<%= @book.image_link %>" target="_blank"><br>
 
     <p>Publisher: <%= @book.publisher.blank? ? "unavailable" : @book.publisher %></p>
-    <p>Published Date: <%= @book.published_date.blank? ? "unavailable" : @book.published_date %></p><br>
+    <p>Published Date: <%= @book.published_date.blank? ? "unavailable" : @book.published_date.to_formatted_s(:long) %></p><br>
 
     <p>Category: <%= @book.categories.blank? ? "unavailable" : @book.categories %></p>
     <p>Description: <%= @book.description.blank? ? "unavailable" : @book.description %></p><br>

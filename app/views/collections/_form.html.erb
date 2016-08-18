@@ -4,14 +4,13 @@
     <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name, class: "form-control", autofocus: true %>
-    </div>
+    </div><br>
+
+    <u><h3>Add Your First Book!</h3></u>
+    <%= render partial: 'book_form', locals: { f: f } %>
 
     <div class="actions">
       <%= f.submit "Create Collection", class: "btn btn-default" %>
-    </div><br>
-
-    <u><h3>Add a Custom Book</h3></u>
-    <strong><h5>(optional)</h5></strong>
-    <%= render partial: 'book_form', locals: { f: f } %>
+    </div>
   <% end %>
 </div>

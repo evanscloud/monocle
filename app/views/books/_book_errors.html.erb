@@ -2,7 +2,7 @@
   <div id="error_explanation">
     <div class="alert alert-danger alert-devise">
       <h5>Looks like there are problems:</h5>
-      <% @book.errors.full_messages.each do |message| %>
+      <% @book.errors.full_messages.each do |message| %>        
         <li><%= message %></li>
       <% end %>
     </div>
