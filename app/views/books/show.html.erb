@@ -13,7 +13,7 @@
 
     <p>ISBN: <%= @book.isbn.blank? ? "unavailable" : @book.isbn %></p>
     <p>Current Price (retail): <%= @book.price.blank? ? "unavailable" : "$ #{@book.price}" %></p>
-    <p>Purchase Now: <%= @book.buy_link.blank? ? "unavailable" : link_to(@book.buy_link, @book.buy_link) %></p>
+    <p>Purchase Now: <%= @book.buy_link.blank? ? "unavailable" : link_to(@book.buy_link, "http://#{@book.buy_link}", target: "_blank") %></p>
   </div>
 </div>
 
