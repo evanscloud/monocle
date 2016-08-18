@@ -45,7 +45,7 @@ class CollectionsController < ApplicationController
   def update
     if current_user.id == @collection.user_id
       if @collection.update(collection_params)
-        redirect_to collection_path(@collection.id), alert: "Looks like things have updated successfully. Woohoo!"
+        redirect_to collection_path(@collection.id), alert: "Looks like it saved successfully. Woohoo!"
       else
         render :edit, alert: "Looks like something went wrong. Please try again."
       end
