@@ -1,57 +1,56 @@
 <div class="form-input">
-  <%= form_for @collection do |f| %>
-    <%= f.fields_for :books, @collection.books.build do |book_field| %>
+  <%= form_for :book, url: {controller: "books", action: "create"} do |f| %>
 
     <div class="field">
-      <%= book_field.label "Title" %>
-      <%= book_field.text_field :title, class: "form-control", placeholder: "required", autofocus: true %>
+      <%= f.label "Title" %>
+      <%= f.text_field :title, class: "form-control", placeholder: "required", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= book_field.label "Author" %>
-      <%= book_field.text_field :author, class: "form-control", placeholder: "required", autofocus: true %>
+      <%= f.label "Author" %>
+      <%= f.text_field :author, class: "form-control", placeholder: "required", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= book_field.label "Publisher" %>
-      <%= book_field.text_field :publisher, class: "form-control", autofocus: true %>
+      <%= f.label "Publisher" %>
+      <%= f.text_field :publisher, class: "form-control", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= book_field.label "Published Date" %>
-      <%= book_field.date_field :published_date, :order => [:month, :day, :year], class: "form-control", autofocus: true %>
+      <%= f.label "Published Date" %>
+      <%= f.date_field :published_date, :order => [:month, :day, :year], class: "form-control", autofocus: true %>
     </div><br>
 
     <div class="field">
-      <%= book_field.label "Category" %>
-      <%= book_field.text_field :categories, class: "form-control", autofocus: true %>
+      <%= f.label "Category" %>
+      <%= f.text_field :categories, class: "form-control", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= book_field.label "Description" %>
-      <%= book_field.text_area :description, class: "form-control", autofocus: true %>
+      <%= f.label "Description" %>
+      <%= f.text_area :description, class: "form-control", autofocus: true %>
     </div><br>
 
     <div class="field">
-      <%= book_field.label "Price" %>
-      <%= book_field.text_field :price, class: "form-control", placeholder: "$", autofocus: true %>
+      <%= f.label "Price" %>
+      <%= f.text_field :price, class: "form-control", placeholder: "$", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= book_field.label "ISBN" %>
-      <%= book_field.text_field :isbn, class: "form-control", autofocus: true %>
+      <%= f.label "ISBN" %>
+      <%= f.text_field :isbn, class: "form-control", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= book_field.label "Buy Link" %>
-      <%= book_field.text_field :buy_link, class: "form-control", autofocus: true %>
+      <%= f.label "Buy Link" %>
+      <%= f.text_field :buy_link, class: "form-control", autofocus: true %>
     </div>
 
     <div class="field">
-      <%= book_field.label "Image Link" %>
-      <%= book_field.text_field :image_link, class: "form-control", autofocus: true %>
+      <%= f.label "Image Link" %>
+      <%= f.text_field :image_link, class: "form-control", autofocus: true %>
     </div>
-    <% end %>
+
 
     <div class="actions">
       <%= f.submit "Add Book", class: "btn btn-default" %>
