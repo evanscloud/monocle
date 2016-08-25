@@ -14,6 +14,7 @@ class BooksController < ApplicationController
   def create
     @book = @collection.books.build(book_params)
     if @book.save
+      @book.collections << @collection
       redirect_to book_path(@book.id), alert: "The book has been added to your collection. Awesome sauce!"
     else
       render :new, alert: "Sorry, there seems to be an error. Please try again."
