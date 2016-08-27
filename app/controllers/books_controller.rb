@@ -2,6 +2,7 @@ class BooksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_collection, except: [:show, :edit, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_genres
 
   def new
     if @collection.user_id == current_user.id
@@ -13,6 +14,7 @@ class BooksController < ApplicationController
 
   def create
     @book = @collection.books.build(book_params)
+    @book.genre_ids = params[:book][:genre_ids]
     if @book.save
       @book.collections << @collection
       redirect_to book_path(@book.id), alert: "The book has been added to your collection. Awesome sauce!"
@@ -33,6 +35,7 @@ class BooksController < ApplicationController
 
   def update
     if current_user.id == @book.collections.first.user_id
+      @book.genre_ids = params[:book][:genre_ids]
       if @book.update(book_params)
         redirect_to book_path(@book.id), alert: "Your book has returned from it's glorious journey across the galaxy."
       else
@@ -56,7 +59,11 @@ class BooksController < ApplicationController
       @book = Book.find(params[:id])
     end
 
+    def set_genres
+      @genres = Genre.all.map { |genre| [genre.name, genre.id] }
+    end
+
     def book_params
-      params.require(:book).permit(:title, :author, :publisher, :published_date, :categories, :average_rating, :ratings_count, :description, :price, :isbn, :buy_link, :image_link, :collection_id)
+      params.require(:book).permit(:title, :author, :publisher, :published_date, :average_rating, :ratings_count, :description, :price, :isbn, :buy_link, :image_link, :collection_id, genre_ids: [], genres_attributes: [:name])
     end
 end
