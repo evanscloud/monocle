@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160810140613) do
+ActiveRecord::Schema.define(version: 20160826034747) do
 
   create_table "book_collections", force: :cascade do |t|
     t.integer  "book_id"
@@ -23,12 +23,21 @@ ActiveRecord::Schema.define(version: 20160810140613) do
   add_index "book_collections", ["book_id"], name: "index_book_collections_on_book_id"
   add_index "book_collections", ["collection_id"], name: "index_book_collections_on_collection_id"
 
+  create_table "book_genres", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id"
+  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id"
+
   create_table "books", force: :cascade do |t|
     t.string   "title"
     t.string   "author"
     t.string   "publisher"
     t.date     "published_date"
-    t.string   "categories"
     t.string   "description"
     t.float    "price"
     t.string   "isbn"
@@ -53,6 +62,12 @@ ActiveRecord::Schema.define(version: 20160810140613) do
     t.string   "content"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

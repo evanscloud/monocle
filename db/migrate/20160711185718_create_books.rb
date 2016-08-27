@@ -5,7 +5,6 @@ class CreateBooks < ActiveRecord::Migration
       t.string :author
       t.string :publisher
       t.date :published_date
-      t.string :categories
       t.string :description
       t.float :price
       t.string :isbn
