@@ -22,8 +22,12 @@
     </div><br>
 
     <div class="field">
-      <%= book_field.label "Category" %>
-      <%= book_field.text_field :categories, class: "form-control" %>
+      <%= book_field.label "Select a Genre" %><br>
+      <%= book_field.collection_check_boxes :genre_ids, Genre.all, :id, :name do |genre| %>
+        <%= genre.label do %>
+          <%= genre.check_box + " " + genre.text unless genre.text.blank? %>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="field">
