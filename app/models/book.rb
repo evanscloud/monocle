@@ -7,11 +7,10 @@ class Book < ActiveRecord::Base
   validates :author, :presence => true
 
   def genres_attributes=(genres_attributes)
-    genres_attributes.each do |genre_attr|
-      unless genre_attr["name"].blank?
-        genre_attr.values.each do |attr|
-          genre = Genre.find_or_create_by(name: attr)
-
+    genres_attributes.each do |genre_attribute|
+      unless genre_attribute["name"].blank?
+        genre_attribute.values.each do |attribute|
+          genre = Genre.find_or_create_by(name: attribute)
           self.book_genres.build(genre_id: genre.id)
         end
       end
