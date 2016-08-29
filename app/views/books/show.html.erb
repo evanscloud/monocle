@@ -7,8 +7,8 @@
 
     <p>Publisher: <%= @book.publisher.blank? ? "unavailable" : @book.publisher %></p>
     <p>Published Date: <%= @book.published_date.blank? ? "unavailable" : @book.published_date.to_formatted_s(:long) %></p><br>
-
-    <p>Category: <%= @book.categories.blank? ? "unavailable" : @book.categories %></p>
+    
+    <p>Genre: <%= @book.genres.blank? ? "unavailable" : @book.display_genre %></p>
     <p>Description: <%= @book.description.blank? ? "unavailable" : @book.description %></p><br>
 
     <p>ISBN: <%= @book.isbn.blank? ? "unavailable" : @book.isbn %></p>
