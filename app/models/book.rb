@@ -10,7 +10,7 @@ class Book < ActiveRecord::Base
     genres_attributes.each do |genre_attribute|
       unless genre_attribute["name"].blank?
         genre_attribute.values.each do |attribute|
-          genre = Genre.find_or_create_by(name: attribute)
+          genre = Genre.find_or_create_by(name: genre_attribute.values.first)
           self.book_genres.build(genre_id: genre.id)
         end
       end
