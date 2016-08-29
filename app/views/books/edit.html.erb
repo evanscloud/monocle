@@ -27,8 +27,19 @@
       </div><br>
 
       <div class="field">
-        <%= f.label "Category" %>
-        <%= f.text_field :categories, class: "form-control" %>
+        <%= f.label "Select a Genre" %><br>
+        <%= f.collection_check_boxes :genre_ids, Genre.all, :id, :name do |genre| %>
+          <%= genre.label do %>
+            <%= genre.check_box + genre.text unless genre.text.blank? %>
+          <% end %>
+        <% end %>
+
+        <h5>OR</h5>
+
+        <%= f.fields_for :genres, @book.genres.build do |genre_field| %>
+          <%= genre_field.label "Create a New Genre" %>
+          <%= genre_field.text_field :name, name: "book[genres_attributes][][name]", class: "form-control" %>
+        <% end %>
       </div>
 
       <div class="field">
