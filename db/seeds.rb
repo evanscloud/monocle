@@ -3,36 +3,36 @@
 User.create(
   username: "evan",
   email: "evan@email.com",
-  password: "000000",
-  password_confirmation: "000000"
+  password: ENV['USER_SECRET'],
+  password_confirmation: ENV['USER_SECRET']
 )
 
 User.create(
   username: "mphelps",
   email: "mphelps@email.com",
-  password: "qqqqqq",
-  password_confirmation: "qqqqqq"
+  password: ENV['SEED_SECRET'],
+  password_confirmation: ENV['SEED_SECRET']
 )
 
 User.create(
   username: "ubolt",
   email: "ubolt@email.com",
-  password: "qqqqqq",
-  password_confirmation: "qqqqqq"
+  password: ENV['SEED_SECRET'],
+  password_confirmation: ENV['SEED_SECRET']
 )
 
 User.create(
   username: "sbiles",
   email: "sbiles@email.com",
-  password: "qqqqqq",
-  password_confirmation: "qqqqqq"
+  password: ENV['SEED_SECRET'],
+  password_confirmation: ENV['SEED_SECRET']
 )
 
 User.create(
   username: "ndjoker",
   email: "ndjoker@email.com",
-  password: "qqqqqq",
-  password_confirmation: "qqqqqq"
+  password: ENV['SEED_SECRET'],
+  password_confirmation: ENV['SEED_SECRET']
 )
 
 # Genres
