@@ -33,6 +33,9 @@ gem 'omniauth-google-oauth2'
 gem 'dotenv-rails'
 gem 'faraday'
 
+# seed database
+gem 'faker'
+
 # use Google Books API
 # gem 'googlebooks'
 # gem 'google-api-client'
