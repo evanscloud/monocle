@@ -19,6 +19,6 @@ class Book < ActiveRecord::Base
 
   def display_genre
     genre = self.genres.map { |genre| genre.name }
-    genre.join("")
+    genre.join(", ")
   end
 end
