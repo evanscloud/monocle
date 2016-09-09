@@ -16,7 +16,7 @@ class Collection < ActiveRecord::Base
       @book = Book.find_or_create_by(title: book_attr[:title], author: book_attr[:author], publisher: book_attr[:publisher], published_date: book_attr[:published_date], description: book_attr[:description], price: book_attr[:price], isbn: book_attr[:isbn], buy_link: book_attr[:buy_link], image_link: book_attr[:image_link])
 
       genre = set_genre(book_attr)
-      binding.pry
+      
       self.book_collections.build(book_id: @book.id)
     end
   end
