@@ -66,6 +66,6 @@ class CollectionsController < ApplicationController
     end
 
     def collection_params
-      params.require(:collection).permit(:name, :user_id, book_ids: [], books_attributes: [:title, :author, :publisher, :published_date, :categories, :description, :price, :isbn, :buy_link, :image_link])
+      params.require(:collection).permit(:name, :user_id, book_ids: [], books_attributes: [:title, :author, :publisher, :published_date, :description, :price, :isbn, :buy_link, :image_link, genre_ids: []])
     end
 end
