@@ -9,9 +9,17 @@ class CollectionsController < ApplicationController
         redirect_to root_path, alert: "ALERT! Can't access user."
       else
         @collections = @user.collections
+        respond_to do |format|
+          format.html { render :index }
+          format.json { render json: @collections }
+        end
       end
     else
       @collections = Collection.all
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: @collections }
+      end
     end
   end
 
