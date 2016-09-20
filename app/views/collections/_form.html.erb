@@ -1,16 +1,21 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "collections/book_fields" %>
+<% end %>
+
 <div class="form-input">
   <%= form_for @collection, url: {controller: "collections", action: "create"} do |f| %>
 
     <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name, class: "form-control", autofocus: true %>
-    </div><br>
+    </div>
 
-    <u><h3>Add Your First Book!</h3></u>
-    <h5>(optional)</h5>
-    <%= render partial: 'book_form', locals: { f: f } %>
+    <h3><a id="show" href="">Add Your First Book!</a></h3><br>
+    <div class="book-fields">
+      <%= render partial: 'book_form', locals: { f: f } %>
+    </div>
 
-    <div class="actions">
+    <div class="actions" align="center">
       <%= f.submit "Create Collection", class: "btn btn-default" %>
     </div>
   <% end %>
