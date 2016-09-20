@@ -25,6 +25,11 @@ class BooksController < ApplicationController
     @collection = @book.collections.first
     if @book.nil?
       redirect_to user_collections_path(current_user), alert: "Sorry, couldn't find that book."
+    else
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @book }
+      end
     end
   end
 
