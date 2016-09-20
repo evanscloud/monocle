@@ -1,41 +1,27 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "collections/all_collections" %>
+<% end %>
+
 <div class="custlist">
-  <% if @collections.empty? %>
-    <h5>Where did everyone go...?</h5>
-  <% else %>
-    <u><h3>Little Tibits</h3></u>
+  <u><h3>Little Tibits</h3></u>
 
-    <table align="center">
-      <tr>
-        <td>Recently Added:</td>
-        <td>
-          <% Collection.most_recent.each do |collection| %>
-            <%= link_to collection.name, collection_path(collection.id) %>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>Most Books:</td>
-        <td>
-          <% Collection.most_books.each do |collection| %>
-            <%= link_to collection.name, collection_path(collection.id) %>
-          <% end %>
-        </td>
-      </tr>
-    </table>
-
-    <hr>
-
-    <table align="center">
-      <tr>
-        <th><u>NAME</u></th>
-        <th><u>COUNT</u></th>
-      </tr>
-      <% @collections.each do |collection| %>
-      <tr>
-        <td><%= link_to "#{collection.name} by #{collection.user.username}", collection_path(collection.id) %></td>
-        <td><%= collection.books.count %> book(s)</td>
-      </tr>
-      <% end %>
-    </table>
-  <% end %>
+  <table align="center">
+    <tr>
+      <td>Recently Added:</td>
+      <td>
+        <% Collection.most_recent.each do |collection| %>
+          <%= link_to collection.name, collection_path(collection.id) %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <td>Most Books:</td>
+      <td>
+        <% Collection.most_books.each do |collection| %>
+          <%= link_to collection.name, collection_path(collection.id) %>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+  <hr>
 </div>
