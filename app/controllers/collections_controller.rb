@@ -36,6 +36,11 @@ class CollectionsController < ApplicationController
     @books = @collection.books
     if @collection.nil?
       redirect_to user_collections_path(@collection), alert: "Sorry, collection not found."
+    else
+      respond_to do |format|
+        format.html { render :show }
+        format.json { render json: @collection }
+      end
     end
   end
 
