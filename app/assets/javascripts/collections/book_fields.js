@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function() {
   $("#book-fields").hide();
 
   $("#show").click(function(){
