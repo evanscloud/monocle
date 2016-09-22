@@ -1,7 +1,7 @@
 $(document).ready(function(){
-  $(".book-fields").hide();
+  $("#book-fields").hide();
 
   $("#show").click(function(){
-    $(".book-fields").show();
+    $("#book-fields").show();
   });
 });

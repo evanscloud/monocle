@@ -11,9 +11,7 @@
     </div>
 
     <h3><a id="show" href="">Add Your First Book!</a></h3><br>
-    <div class="book-fields">
       <%= render partial: 'book_form', locals: { f: f } %>
-    </div>
 
     <div class="actions" align="center">
       <%= f.submit "Create Collection", class: "btn btn-default" %>
