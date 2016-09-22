@@ -1,18 +1,4 @@
 <div class="custlist">
-  <% if @collections.empty? %>
-    <h5>Where did everyone go...?</h5>
-  <% else %>
-    <table align="center">
-      <tr>
-        <th><u>NAME</u></th>
-        <th><u>COUNT</u></th>
-      </tr>
-      <% @collections.each do |collection| %>
-      <tr>
-        <td><%= link_to "#{collection.name} by #{collection.user.username}", collection_path(collection.id) %></td>
-        <td><%= collection.books.count %> book(s)</td>
-      </tr>
-      <% end %>
-    </table>
-  <% end %>
+  <div class="user-collections">
+  </div>
 </div>
