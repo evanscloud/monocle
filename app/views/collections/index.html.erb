@@ -1,11 +1,7 @@
 <div class="custcontainer">
   <% if params[:user_id] %>
-    <h1>Hi, <%= current_user.username %>!</h1>
-
-    <u><h3>Your Bookshelf</h3></u>
     <%= render "user_collections" %>
   <% else %>
-    <h1>Take a look at what's out there!</h1>
     <%= render "all_collections" %>
   <% end %><br>
 </div>
