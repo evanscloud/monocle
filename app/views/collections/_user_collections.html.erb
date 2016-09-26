@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "collections/user_collections" %>
+<% end %>
+
 <h1>Hi, <%= current_user.username %>!</h1>
 
 <u><h3>Your Bookshelf</h3></u>
