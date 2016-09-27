@@ -1,3 +1,9 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "collections/collection_model" %>
+  <%= javascript_include_tag "collections/collection_show" %>
+  <%= javascript_tag "var collectionId = #{@collection.id};" %>
+<% end %>
+
 <div class="custcontainer">
   <u><h1><%= @collection.name %></h1></u>
   <% if current_user && current_user.id == @collection.user_id %>
@@ -6,14 +12,7 @@
     </div>
   <% end %><br>
 
-  <div class="custlist">
-    <% if @collection.books.empty? %>
-      <h5>It's kinda lonely here...</h5>
-    <% else %>
-      <% @collection.books.each do |book| %>
-        <li><%= link_to "#{book.title} by #{book.author}", book_path(book.id) %></li>
-      <% end %>
-    <% end %>
+  <div class="custlist" id="collection-books-show">
   </div><br><br>
 
   <div class="comment-list">
