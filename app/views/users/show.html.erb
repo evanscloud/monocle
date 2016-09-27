@@ -1,22 +1,12 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "users/user_show" %>
+  <%= javascript_tag "var userId = #{@current_user.id};" %>
+<% end %>
+
 <div class="custcontainer">
 
   <h1>Account Information</h1>
 
-  <div class="custlist">
-    <table align="center">
-        <td>Username:</td>
-        <td><%= @user.username %></td>
-      <tr></tr>
-        <td>Email:</td>
-        <td><%= @user.email %></td>
-      <tr></tr>
-      <% if @user.provider %>
-        <td>Provider:</td>
-        <td><%= @user.provider %></td>
-      <% else %>
-        <td><%= link_to "Connect with Facebook", '/auth/facebook', class: "btn btn-block btn-social btn-facebook" %></td>
-        <td><%= link_to "Connect with Google", '/auth/google_oauth2', class: "btn btn-block btn-social btn-google" %></td>
-      <% end %>
-    </table>
+  <div class="custlist" id="user-show">
   </div>
 </div>
