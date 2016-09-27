@@ -1,7 +1,5 @@
-$(function() {
-  var user_id = this.data.user.id
-
-  $.getJSON('/users/' + user_id + '/collections.json', function(data) {
+$(function(){
+  $.getJSON('/users/' + userId + '/collections.json', function(data) {
     var collections = data;
     var collectionText = '';
 
@@ -13,15 +11,15 @@ $(function() {
     if (collections) {
       for (i = 0; i < collections.length; i++) {
         collectionText += '<tr>';
-        collectionText += '<td><a href="users/' + collections[i].user.id + '/collections">' + collections[i].name + '</a>';
+        collectionText += '<td><a href="/collections/' + collections[i].id + '">' + collections[i].name + '</a></td>';
         collectionText += '<td>' + collections[i].books.length + ' book(s)</td>';
         collectionText += '</tr>';
       };
-      $('.user-collections').append(collectionText);
+      $('#user-collections').append(collectionText);
     }
     else {
       collectionText = '<h5>Where did everyone go...?</h5>';
-      $('.user-collections').append(collectionText);
+      $('#user-collections').append(collectionText);
     };
     collectionText += '</table>';
   });
