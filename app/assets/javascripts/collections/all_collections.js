@@ -1,7 +1,21 @@
-$(function() {
+$(function(){
   $.getJSON('/collections.json', function(data) {
     var collections = data;
     var collectionText = '';
+
+    collectionText += '<u><h3>Little Tibits</h3></u>';
+    collectionText += '<table align="center">';
+    collectionText += '<tr>';
+    collectionText += '<td>Recently Added:</td>';
+    // collectionText += '<td>' + Collection.protoype.most_recent + '</td>';
+    collectionText += '</tr>';
+    collectionText += '<tr>';
+    collectionText += '<td>Most Books:</td>';
+    // collectionText += '<td>' + Collection.protoype.most_books + '</td>';
+    collectionText += '</tr>';
+    collectionText += '</table>';
+
+    collectionText += '<hr>';
 
     collectionText += '<table align="center">';
     collectionText += '<tr>';
@@ -11,11 +25,11 @@ $(function() {
     if (collections) {
       for (i = 0; i < collections.length; i++) {
         collectionText += '<tr>';
-        collectionText += '<td><a href="collections/' + collections[i].id + '">' + collections[i].name + ' by ' + collections[i].user.username + '</a>';
+        collectionText += '<td><a href="collections/' + collections[i].id + '">' + collections[i].name + ' by ' + collections[i].user.username + '</a></td>';
         collectionText += '<td>' + collections[i].books.length + ' book(s)</td>';
         collectionText += '</tr>';
       };
-      $('.all-collections').append(collectionText);
+      $('#all-collections').append(collectionText);
     }
     else {
       collectionText += '<h5>Where did everyone go...?</h5>';
