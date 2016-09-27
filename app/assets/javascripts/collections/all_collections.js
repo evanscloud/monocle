@@ -29,11 +29,11 @@ $(function(){
         collectionText += '<td>' + collections[i].books.length + ' book(s)</td>';
         collectionText += '</tr>';
       };
-      $('#all-collections').append(collectionText);
     }
     else {
       collectionText += '<h5>Where did everyone go...?</h5>';
     };
     collectionText += '</table>';
+    $('#all-collections').append(collectionText);
   });
 });

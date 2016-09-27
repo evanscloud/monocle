@@ -15,12 +15,12 @@ $(function(){
         collectionText += '<td>' + collections[i].books.length + ' book(s)</td>';
         collectionText += '</tr>';
       };
-      $('#user-collections').append(collectionText);
+
     }
     else {
       collectionText = '<h5>Where did everyone go...?</h5>';
-      $('#user-collections').append(collectionText);
     };
     collectionText += '</table>';
+    $('#user-collections').append(collectionText);
   });
 });
