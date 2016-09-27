@@ -11,5 +11,8 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.precompile += %w( collections/all_collections.js )
-Rails.application.config.assets.precompile += %w( collections/book_fields.js )
 Rails.application.config.assets.precompile += %w( collections/user_collections.js )
+Rails.application.config.assets.precompile += %w( collections/collection_show.js )
+Rails.application.config.assets.precompile += %w( collections/collection_model.js )
+Rails.application.config.assets.precompile += %w( collections/book_fields.js )
+Rails.application.config.assets.precompile += %w( comments/comment.js )
