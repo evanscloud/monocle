@@ -3,20 +3,6 @@ $(function(){
     var collections = data;
     var collectionText = '';
 
-    collectionText += '<u><h3>Little Tibits</h3></u>';
-    collectionText += '<table align="center">';
-    collectionText += '<tr>';
-    collectionText += '<td>Recently Added:</td>';
-    // collectionText += '<td>' + Collection.protoype.most_recent + '</td>';
-    collectionText += '</tr>';
-    collectionText += '<tr>';
-    collectionText += '<td>Most Books:</td>';
-    // collectionText += '<td>' + Collection.protoype.most_books + '</td>';
-    collectionText += '</tr>';
-    collectionText += '</table>';
-
-    collectionText += '<hr>';
-
     collectionText += '<table align="center">';
     collectionText += '<tr>';
     collectionText += '<th><u>NAME</u></th>';
