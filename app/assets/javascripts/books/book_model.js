@@ -12,3 +12,19 @@ var Book = function(id, title, author, publisher, published_date, description, p
   this.collections = collections;
   this.genres = genres;
 };
+
+Book.prototype.displayDate = function(){
+  var date = new Date(this.published_date);
+  var mm = date.getMonth();
+  var dd = date.getDate();
+  var yy = date.getFullYear();
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var fullDate = months[mm - 1] + " " + dd + ", " + yy;
+
+  if (fullDate){
+    return fullDate;
+  }
+  else {
+    return "unavailable";
+  }
+};
