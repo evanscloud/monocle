@@ -5,7 +5,7 @@ $(function(){
 
     if (collection){
       for (i = 0; i < collection.books.length; i++){
-        collectionText += '<li><a href="/books/"' + collection.books[i].id + '>' + collection.books[i].title + ' by ' + collection.books[i].author + '</li>';
+        collectionText += '<li><a href="/books/' + collection.books[i].id + '">' + collection.books[i].title + ' by ' + collection.books[i].author + '</li>';
       };
 
     }
