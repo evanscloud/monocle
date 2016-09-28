@@ -28,3 +28,13 @@ Book.prototype.displayDate = function(){
     return "unavailable";
   }
 };
+
+Book.prototype.displayGenres = function(){
+  var genres = this.genres.map(function(genre){ return genre.name });
+  if (genres.length == 1){
+    return genres.join("");
+  }
+  else {
+    return genres.join(", ");
+  }
+};

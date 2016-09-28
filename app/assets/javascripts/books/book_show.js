@@ -6,7 +6,7 @@ $(function(){
     bookText += '<img class="image-display" src="' + book.image_link + '" target="_blank"><br>';
     bookText += '<p>Publisher: ' + (book.publisher ? book.publisher : "unavailable") + '</p>';
     bookText += '<p>Published Date: ' + book.displayDate() + '</p><br>';
-
+    bookText += '<p>Genre: ' + book.displayGenres() + '</p>';
     bookText += '<p>Description: ' + (book.description ? book.description : "unavailable") + '</p><br>';
     bookText += '<p>ISBN: ' + (book.isbn ? book.isbn : "unavailable") + '</p>';
     bookText += '<p>Current Price (retail): ' + (book.price ? '$' + book.price : "unavailable") + '</p>';
