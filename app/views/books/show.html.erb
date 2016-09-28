@@ -1,19 +1,14 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "books/book_model" %>
+  <%= javascript_include_tag "books/book_show" %>
+  <%= javascript_tag "var bookId = #{@book.id};" %>
+<% end %>
+
 <div class="custbook-container">
   <h1><%= @book.title %></h1>
   <h3>By <%= @book.author %></h3><br>
 
-  <div class="custbook-info">
-    <img class="image-display" src= "<%= @book.image_link %>" target="_blank"><br>
-
-    <p>Publisher: <%= @book.publisher.blank? ? "unavailable" : @book.publisher %></p>
-    <p>Published Date: <%= @book.published_date.blank? ? "unavailable" : @book.published_date.to_formatted_s(:long) %></p><br>
-    
-    <p>Genre: <%= @book.genres.blank? ? "unavailable" : @book.display_genre %></p>
-    <p>Description: <%= @book.description.blank? ? "unavailable" : @book.description %></p><br>
-
-    <p>ISBN: <%= @book.isbn.blank? ? "unavailable" : @book.isbn %></p>
-    <p>Current Price (retail): <%= @book.price.blank? ? "unavailable" : "$ #{@book.price}" %></p>
-    <p>Purchase Now: <%= @book.buy_link.blank? ? "unavailable" : link_to(@book.buy_link, "http://#{@book.buy_link}", target: "_blank") %></p>
+  <div class="custbook-info" id="book-show">
   </div>
 </div>
 
