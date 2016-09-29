@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
     if @comment.save
-      redirect_to collection_path(@comment.collection), alert: "New comment!"
+      render json: @comment, status: 201, alert: "New comment!"
     else
       redirect_to collection_path(params[:collection_id]), alert: "Sorry, there seems to be an error. Please try again."
     end
