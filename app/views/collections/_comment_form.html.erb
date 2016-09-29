@@ -1,5 +1,6 @@
 <% content_for :head do %>
   <%= javascript_include_tag "comments/comment" %>
+  <%= javascript_tag "var userId = #{current_user.id};" %>
 <% end %>
 
 <div class="form-input">
