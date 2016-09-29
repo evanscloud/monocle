@@ -12,6 +12,5 @@ $(function(){
     bookText += '<p>Current Price (retail): ' + (book.price ? '$' + book.price : "unavailable") + '</p>';
     bookText += '<p>Purchase Now: ' + (book.buy_link ? '<a href="' + book.buy_link + '" target="_blank">' + book.buy_link + '</a>' : "unavailable") + '</p>';
     $('#book-show').append(bookText);
-    debugger;
   });
 });
