@@ -2,6 +2,7 @@
   <%= javascript_include_tag "collections/collection_model" %>
   <%= javascript_include_tag "collections/collection_show" %>
   <%= javascript_tag "var collectionId = #{@collection.id};" %>
+  <%= javascript_tag "var userId = #{current_user.id};" %>
 <% end %>
 
 <div class="custcontainer">
@@ -15,7 +16,7 @@
   <div class="custlist" id="collection-books-show">
   </div><br><br>
 
-  <div class="comment-list">
+  <div class="comment-list" id="user-comments">
     <% if current_user %>
       <%= render "comment_form" %>
     <% else %>
