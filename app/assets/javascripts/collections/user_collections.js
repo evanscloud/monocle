@@ -8,7 +8,7 @@ $(function(){
     collectionText += '<th><u>NAME</u></th>';
     collectionText += '<th><u>COUNT</u></th>';
     collectionText += '</tr>';
-    if (collections) {
+    if (typeof collections[0] !== 'undefined') {
       for (i = 0; i < collections.length; i++) {
         collectionText += '<tr>';
         collectionText += '<td><a href="/collections/' + collections[i].id + '">' + collections[i].name + '</a></td>';
@@ -18,7 +18,8 @@ $(function(){
 
     }
     else {
-      collectionText = '<h5>Where did everyone go...?</h5>';
+      collectionText = '<br>';
+      collectionText += '<h5>Where did everyone go...?</h5>';
     };
     collectionText += '</table>';
     $('#user-collections').append(collectionText);
