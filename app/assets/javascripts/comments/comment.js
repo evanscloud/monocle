@@ -17,6 +17,7 @@ $(function() {
       };
       commentText += '<br><br>';
       $('#user-comments').append(commentText);
+      $('#new_comment')[0].reset();
     });
   });
 });
