@@ -21,3 +21,5 @@ Rails.application.config.assets.precompile += %w( books/book_model.js )
 
 Rails.application.config.assets.precompile += %w( users/user_show.js )
 Rails.application.config.assets.precompile += %w( comments/comment.js )
+
+Rails.application.config.assets.precompile += %w( common.js )
