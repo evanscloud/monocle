@@ -15,7 +15,7 @@ $(function() {
       commentText += 'Posted by: ' + comment.user.username + " ";
       if (comment.user.id == userId){
         commentText += '<a href="/comments/' + comment.id + '/edit">(edit</a>, ';
-        commentText += '<a rel="nofollow" data-method="delete" href="/comments/' + comment.id + '">delete)</a>';
+        commentText += '<a rel="nofollow" data-method="delete" href="/comments/' + comment.id + '">delete</a>)';
       };
       commentText += '<br><br>';
       $('#user-comments').append(commentText);
