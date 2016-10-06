@@ -1,6 +1,5 @@
 $(function(){
-  $.getJSON('/collections.json', function(data) {
-    var collections = data;
+  $.getJSON('/collections.json', function(collections) {
     var collectionText = '';
 
     collectionText += '<table align="center">';

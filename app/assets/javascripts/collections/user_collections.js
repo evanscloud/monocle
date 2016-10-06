@@ -1,6 +1,5 @@
 $(function(){
-  $.getJSON('/users/' + userId + '/collections.json', function(data) {
-    var collections = data;
+  $.getJSON('/users/' + userId + '/collections.json', function(collections) {
     var collectionText = '';
 
     collectionText += '<table align="center">';
@@ -15,7 +14,6 @@ $(function(){
         collectionText += '<td>' + collections[i].books.length + ' book(s)</td>';
         collectionText += '</tr>';
       };
-
     }
     else {
       collectionText = '<br>';
