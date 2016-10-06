@@ -1,9 +1,8 @@
 <% content_for :head do %>
   <%= javascript_include_tag "comments/comment" %>
-  <%= javascript_tag "var userId = #{current_user.id};" %>
 <% end %>
 
-<div class="form-input">
+<div class="form-input" data-user="<%= current_user.id %>">
   <%= form_for Comment.new, url: collection_comments_path(@collection.id) do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :collection_id, value: @collection.id %>
