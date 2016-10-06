@@ -11,7 +11,7 @@ $(function(){
       for (i = 0; i < collections.length; i++) {
         collectionText += '<tr>';
         collectionText += '<td><a href="collections/' + collections[i].id + '">' + collections[i].name + ' by ' + collections[i].user.username + '</a></td>';
-        collectionText += '<td>' + collections[i].books.length + ' book(s)</td>';
+        collectionText += '<td>' + collections[i].books.length + ' ' + String.prototype.pluralize(collections[i].books.length) + '</td>';
         collectionText += '</tr>';
       };
     }
