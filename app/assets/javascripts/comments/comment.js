@@ -8,10 +8,9 @@ $(function() {
     var values = $(this).serialize();
     var posting = $.post('/collections/' + collectionId + '/comments', values);
 
-    posting.done(function(data){
-      var comment = data;
+    posting.done(function(comment){
       var commentText = '';
-      
+
       commentText += '<p>' + comment.content + '</p>';
       commentText += 'Posted by: ' + comment.user.username + " ";
       if (comment.user.id == userId){
