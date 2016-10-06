@@ -1,10 +1,9 @@
 <% content_for :head do %>
   <%= javascript_include_tag "collections/collection_model" %>
   <%= javascript_include_tag "collections/collection_show" %>
-  <%= javascript_tag "var collectionId = #{@collection.id};" %>
 <% end %>
 
-<div class="custcontainer">
+<div class="custcontainer" data-collection="<%= @collection.id %>">
   <u><h1><%= @collection.name %></h1></u>
   <% if current_user && current_user.id == @collection.user_id %>
     <div class="custbtn-container">

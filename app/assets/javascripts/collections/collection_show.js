@@ -1,4 +1,6 @@
 $(function(){
+  var collectionId = $('.custcontainer').data('collection');
+  
   $.getJSON('/collections/' + collectionId + '.json', function(data){
     var collection = new Collection(data.id, data.name, data.user, data.books, data.comments);
     var collectionText = '';
