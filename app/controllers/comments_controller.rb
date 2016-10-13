@@ -35,7 +35,6 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to collection_path(@comment.collection_id), alert: "Shhhh, that never happened..."
   end
 
   private
