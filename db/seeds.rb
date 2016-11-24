@@ -90,7 +90,7 @@ Genre.create(name: "reference")
 
 
 # Books
-30.times do
+50.times do
   book = Book.create(
     title: Faker::Book.title,
     author: Faker::Book.author,
@@ -108,31 +108,31 @@ Genre.create(name: "reference")
 end
 
 # Collections
-10.times do
+15.times do
   collection = Collection.create(
     name: Faker::Commerce.department,
     user_id: Faker::Number.between(1, 10)
   )
   # add books
   rand(1..7).times do
-    book = Book.find_by_id(Faker::Number.between(1, 30))
+    book = Book.find_by_id(Faker::Number.between(1, 50))
     collection.books << book
   end
 end
 
 # Comments
-10.times do
+25.times do
   Comment.create(
     content: Faker::Hacker.say_something_smart,
     user_id: Faker::Number.between(1, 10),
-    collection_id: Faker::Number.between(1, 12)
+    collection_id: Faker::Number.between(1, 15)
   )
 end
 
-10.times do
+25.times do
   Comment.create(
     content: Faker::ChuckNorris.fact,
     user_id: Faker::Number.between(1, 10),
-    collection_id: Faker::Number.between(1, 12)
+    collection_id: Faker::Number.between(1, 15)
   )
 end

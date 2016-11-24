@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160826034747) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "book_collections", force: :cascade do |t|
     t.integer  "book_id"
     t.integer  "collection_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20160826034747) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "book_collections", ["book_id"], name: "index_book_collections_on_book_id"
-  add_index "book_collections", ["collection_id"], name: "index_book_collections_on_collection_id"
+  add_index "book_collections", ["book_id"], name: "index_book_collections_on_book_id", using: :btree
+  add_index "book_collections", ["collection_id"], name: "index_book_collections_on_collection_id", using: :btree
 
   create_table "book_genres", force: :cascade do |t|
     t.integer  "book_id"
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 20160826034747) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id"
-  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id"
+  add_index "book_genres", ["book_id"], name: "index_book_genres_on_book_id", using: :btree
+  add_index "book_genres", ["genre_id"], name: "index_book_genres_on_genre_id", using: :btree
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20160826034747) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "collections", ["user_id"], name: "index_collections_on_user_id"
+  add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -88,7 +91,12 @@ ActiveRecord::Schema.define(version: 20160826034747) do
     t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "book_collections", "books"
+  add_foreign_key "book_collections", "collections"
+  add_foreign_key "book_genres", "books"
+  add_foreign_key "book_genres", "genres"
+  add_foreign_key "collections", "users"
 end
