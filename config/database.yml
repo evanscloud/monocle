@@ -1,4 +1,4 @@
-# PostgreSQL. Versions 8.2 and up are supported.
+# PostgreSQL. Versions 9.1 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
@@ -17,32 +17,20 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  template: template0
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
-  timeout: 5000
-
-# default: &default
-#   adapter: sqlite3
-#   pool: 5
-#   timeout: 5000
-
-
-# development:
-#   <<: *default
-#   database: monocle_development
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: monocle_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: library
+  #username: monocle
 
   # The password associated with the postgres role (username).
   #password:
@@ -68,16 +56,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-
-# test:
-#   <<: *default
-#   database: monocle_test
-
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: monocle_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -103,7 +84,3 @@ production:
   database: monocle_production
   username: monocle
   password: <%= ENV['MONOCLE_DATABASE_PASSWORD'] %>
-
-# production:
-#   <<: *default
-#   database: db/production.sqlite3
