@@ -14,6 +14,10 @@ class BooksController < ApplicationController
   def search
   end
 
+  def result
+    @book = GoogleBooks.search(params[:title]).first
+  end
+
   def create
     @book = @collection.books.build(book_params)
     if @book.save
