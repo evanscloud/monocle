@@ -1,0 +1,19 @@
+<div class="custform">
+  <h1>Search a Book</h1>
+
+  <%= form_tag "result", method: "post" do %>
+    <div class="field">
+      <%= label_tag "Enter a Book Title" %><br>
+      <%= text_field_tag :title, nil, :class => "form-control", :placeholder => "Harry Potter and the Sorcerer's Stone", :autofocus => true %>
+    </div>
+
+    <div class="actions" align="center">
+      <%= submit_tag "Search", :class => "btn btn-default" %>
+    </div>
+  <% end %>
+
+</div>
+
+<div class="custbtn-container">
+  <%= button_to "Back", collection_books_path, method: 'get', class: "btn btn-block" %>
+</div>

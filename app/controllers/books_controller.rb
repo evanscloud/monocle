@@ -11,6 +11,9 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+  end
+
   def create
     @book = @collection.books.build(book_params)
     if @book.save
