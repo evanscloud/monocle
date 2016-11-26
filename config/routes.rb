@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show], shallow: true do
     resources :collections do
       resources :books
+      get "books/search"
+      post "books/result"
       resources :comments
     end
   end
