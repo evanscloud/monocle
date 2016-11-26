@@ -7,6 +7,7 @@
   <u><h1><%= @collection.name %></h1></u>
   <% if current_user && current_user.id == @collection.user_id %>
     <div class="custbtn-container">
+      <%= button_to "Search a Book", collection_books_search_path(@collection.id), method: "get", class: "btn btn-block" %>
       <%= button_to "Add a Book", new_collection_book_path(@collection.id), method: "get", class: "btn btn-block" %>
     </div>
   <% end %><br>
