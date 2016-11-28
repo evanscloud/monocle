@@ -15,9 +15,9 @@
     <p>Current Price (retail): <%= @book.sale_info['retailPrice'].blank? ? "unavailable" : "$ #{@book.sale_info['retailPrice']['amount']}" %></p>
     <p>Purchase Now: <%= @book.sale_info['buyLink'].blank? ? "unavailable" : link_to(@book.sale_info['buyLink'], "http://#{@book.sale_info['buyLink']}", target: "_blank") %></p>
   </div>
-  <button type="button" name="button">Add book to collection</button>
 </div>
 
 <div class="custbtn-container">
+  <%= button_to "Add book to collection", { action: "create", id: @book.id }, class: "btn btn-block" %>
     <%= button_to "Back", collection_path(@collection), method: 'get', class: "btn btn-block" %>
 </div>
