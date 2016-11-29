@@ -15,11 +15,17 @@ class BooksController < ApplicationController
   end
 
   def result
-    @book = GoogleBooks.search(params[:title]).first
+    @book = GoogleBooks.search(params[:title]).first    
+    book = Book.create(title: @book.title, author: @book.authors, publisher: @book.publisher, published_date: @book.published_date, description: @book.description, price: @book.sale_info['retailPrice']['amount'], isbn: @book.isbn, buy_link: @book.sale_info['buyLink'], image_link: @book.image_link)    
   end
 
-  def create
-    @book = @collection.books.build(book_params)
+  def create    
+    if book_params.valid?
+      @book = @collection.books.build(book_params)
+    else      
+      book = Book.find_by(id: book.id)
+      @book = @collection.books.build(book)      
+    end
     if @book.save
       @book.collections << @collection
       redirect_to book_path(@book.id), alert: "The book has been added to your collection. Awesome sauce!"
@@ -69,6 +75,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :author, :publisher, :published_date, :average_rating, :ratings_count, :description, :price, :isbn, :buy_link, :image_link, :collection_id, genre_ids: [], genres_attributes: [:name])
+      params.require(:book).permit(:title, :author, :publisher, :published_date, :description, :price, :isbn, :buy_link, :image_link, :collection_id, genre_ids: [], genres_attributes: [:name])
     end
 end
