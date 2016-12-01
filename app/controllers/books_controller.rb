@@ -15,17 +15,30 @@ class BooksController < ApplicationController
   end
 
   def result
-    @book = GoogleBooks.search(params[:title]).first    
-    book = Book.create(title: @book.title, author: @book.authors, publisher: @book.publisher, published_date: @book.published_date, description: @book.description, price: @book.sale_info['retailPrice']['amount'], isbn: @book.isbn, buy_link: @book.sale_info['buyLink'], image_link: @book.image_link)    
+    @searched_book = GoogleBooks.search(params[:title]).first
+
+    if @searched_book.nil?
+      redirect_to collection_books_search_path(@collection.id), alert: "Sorry, that book doesn't seem to exist. Please try again."
+    else
+      if @searched_book.sale_info['retailPrice'].blank?
+        @searched_book.sale_info[:price] = "unavailable"
+      else
+        @searched_book.sale_info[:price] = @searched_book.sale_info['retailPrice']['amount']
+      end
+      @searched_book.sale_info[:link] ||= @searched_book.sale_info['buyLink']
+
+      @book = @collection.books.build(title: @searched_book.title, author: @searched_book.authors, publisher: @searched_book.publisher, published_date: @searched_book.published_date, description: @searched_book.description, price: @searched_book.sale_info[:price], isbn: @searched_book.isbn, buy_link: @searched_book.sale_info[:link], image_link: @searched_book.image_link)
+      if @book.save
+        @book.collections << @collection
+        redirect_to book_path(@book.id), alert: "The book has been added to your collection. Awesome sauce!"
+      else
+        render :new, alert: "Sorry, there seems to be an error. Please try again."
+      end
+    end
   end
 
-  def create    
-    if book_params.valid?
-      @book = @collection.books.build(book_params)
-    else      
-      book = Book.find_by(id: book.id)
-      @book = @collection.books.build(book)      
-    end
+  def create
+    @book = @collection.books.build(book_params)
     if @book.save
       @book.collections << @collection
       redirect_to book_path(@book.id), alert: "The book has been added to your collection. Awesome sauce!"
